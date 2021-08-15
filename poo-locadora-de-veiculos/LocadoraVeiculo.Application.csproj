@@ -6,4 +6,9 @@
     <RootNamespace>poo_locadora_de_veiculos</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Locadora.Veiculo.Services\LocadoraVeiculo.Services.csproj" />
+    <ProjectReference Include="..\LocadoraVeiculo.Domain\LocadoraVeiculo.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

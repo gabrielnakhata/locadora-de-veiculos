@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LocadoraVeiculo.Domain\LocadoraVeiculo.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
