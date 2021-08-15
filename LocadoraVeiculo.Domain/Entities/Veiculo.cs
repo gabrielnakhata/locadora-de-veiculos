@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace poo_locadora_de_veiculos
+﻿namespace LocadoraVeiculo.Domain.Entities
 {
     public class Veiculo
     {
