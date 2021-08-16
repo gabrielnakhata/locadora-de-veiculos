@@ -6,19 +6,47 @@ namespace poo_locadora_de_veiculos
 {
     class Program
     {
+     
         static void Main(string[] args)
         {
             ClienteService clienteService = new ClienteService();
 
-            Cliente cliente = new Cliente();
-            cliente.Nome = "Charlie";
-            cliente.Email = "charlieman@gmail.com";
-            cliente.Cpf = "3029920";
-            cliente.Cnh = "392203";
-            cliente.Celular = "31988829";
+            // "CTRL + K + C" = Comentar um Bloco selecionando...
+            // "CTRL + K + U" = Descomentar um Bloco selecionando...
 
-            clienteService.Inserir(cliente);
-            
+            //Cliente cliente = new Cliente();
+            //Console.WriteLine("Digite o nome do cliente...");
+            //cliente.Nome = Console.ReadLine();
+            //Console.WriteLine("Digite o E-mail...");
+            //cliente.Email = Console.ReadLine();
+            //Console.WriteLine("Digite o CPF...");
+            //cliente.Cpf = Console.ReadLine();
+            //Console.WriteLine("Digite a CNH...");
+            //cliente.Cnh = Console.ReadLine();
+            //Console.WriteLine("Digite o celular...");
+            //cliente.Celular = Console.ReadLine();
+
+            //clienteService.Insert(cliente);
+
+            Cliente cliente = new Cliente();
+
+            Console.WriteLine("Digite o id do cliente...");
+            cliente.Id = int.Parse(Console.ReadLine());
+            Console.WriteLine("Digite o nome do cliente...");
+            cliente.Nome = Console.ReadLine();
+            Console.WriteLine("Digite o E-mail...");
+            cliente.Email = Console.ReadLine();
+            Console.WriteLine("Digite o CPF...");
+            cliente.Cpf = Console.ReadLine();
+            Console.WriteLine("Digite a CNH...");
+            cliente.Cnh = Console.ReadLine();
+            Console.WriteLine("Digite o celular...");
+            cliente.Celular = Console.ReadLine();
+
+            clienteService.Update(cliente);
+
+
+
         }
     }
 }

@@ -1,10 +1,12 @@
-﻿using System;
+﻿using LocadoraVeiculo.Repository;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace LocadoraVeiculo.Services
 {
-    class VeiculoService
+    public class VeiculoService
     {
+        VeiculoRepository veiculoRepository = new VeiculoRepository(); // Instância de uma classe...(objeto)
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LocadoraVeiculo.Repository
 {
-    class VeiculoRepository
+    public class VeiculoRepository
     {
     }
 }

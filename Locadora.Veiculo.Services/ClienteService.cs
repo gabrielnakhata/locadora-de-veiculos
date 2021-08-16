@@ -6,11 +6,16 @@ namespace LocadoraVeiculo.Services
 {
     public class ClienteService
     {
-        ClienteRepository clienteRepository = new ClienteRepository();
+        ClienteRepository clienteRepository = new ClienteRepository(); // Instância de uma classe...(objeto)
 
-        public void Inserir(Cliente cliente)
+        public void Insert(Cliente cliente) // procedimento na camada de serviço, para inserir um cliente
         {
-            clienteRepository.Inserir(cliente);
+            clienteRepository.Insert(cliente);
+        }
+
+        public void Update(Cliente cliente)
+        {
+            clienteRepository.Update(cliente);
         }
     }
 }
