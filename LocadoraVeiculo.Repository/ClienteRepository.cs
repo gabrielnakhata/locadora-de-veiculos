@@ -50,6 +50,22 @@ namespace LocadoraVeiculo.Repository
             sqlCommand.Connection = sqlConnection;
             sqlCommand.ExecuteNonQuery();
         }
+        public void Delete(int id)
+        {
+            string connectionString = @"Server=localhost\SQLEXPRESS;Database=db-locadora-veiculo;Trusted_Connection=True;";
+            SqlConnection sqlConnection = new SqlConnection();
+            sqlConnection.ConnectionString = connectionString;
+            sqlConnection.Open();
+
+            string sql = $"delete from cliente" +
+                         $" where Id = {id} ";
+
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.CommandText = sql;
+            sqlCommand.Connection = sqlConnection;
+            sqlCommand.ExecuteNonQuery();
+        }
+
     }
 }
 

@@ -15,7 +15,12 @@ namespace LocadoraVeiculo.Services
 
         public void Update(Cliente cliente)
         {
-            clienteRepository.Update(cliente);
+            clienteRepository.Update(cliente);  
+        }
+
+        public void Delete(int id)
+        {
+            clienteRepository.Delete(id);
         }
     }
 }

@@ -17,6 +17,8 @@ namespace LocadoraVeiculo.Domain.Repositories
         void Insert(Cliente cliente);
 
         void Update(Cliente cliente);
+        void Delete(int id);
+
         
     }
 }
