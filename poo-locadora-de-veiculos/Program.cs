@@ -46,13 +46,25 @@ namespace poo_locadora_de_veiculos
             //clienteService.Update(cliente);
 
 
-            Console.WriteLine("Digite o id do cliente que deseja deletar...");
-            int idExclusao = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Digite o id do cliente que deseja deletar...");
+            //int idExclusao = int.Parse(Console.ReadLine());
 
-            clienteService.Delete(idExclusao);
+            //clienteService.Delete(idExclusao);
 
+            VeiculoService veiculoService = new VeiculoService();
 
+            Veiculo veiculo = new Veiculo();
 
+            Console.WriteLine("Digite a placa do veículo...");
+            veiculo.Placa = Console.ReadLine();
+            Console.WriteLine("Digite a ano do veículo...");
+            veiculo.Ano = int.Parse(Console.ReadLine());
+            Console.WriteLine("Digite a marca do veículo...");
+            veiculo.Marca = Console.ReadLine();
+            Console.WriteLine("Digite o modelo do veículo...");
+            veiculo.Modelo = Console.ReadLine();
+
+            veiculoService.Insert(veiculo);
         }
     }
 }

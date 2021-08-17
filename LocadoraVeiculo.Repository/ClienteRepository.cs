@@ -15,14 +15,12 @@ namespace LocadoraVeiculo.Repository
             sqlConnection.ConnectionString = connectionString;
             sqlConnection.Open();
 
-            string sql = "insert into cliente(nome, cpf, email, celular, cnh) " +
-                         $"values('" +
-                         $"{cliente.Nome}', " +
+            string sql = $"insert into cliente(nome, cpf, email, celular, cnh) " + "values" +
+                         $"'{cliente.Nome}', " +
                          $"'{cliente.Cpf}', " +
                          $"'{cliente.Email}', " +
                          $"'{cliente.Celular}', " +
-                         $"'{cliente.Cnh}" +
-                         $"')";
+                         $"'{cliente.Cnh}'";
 
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.CommandText = sql;
