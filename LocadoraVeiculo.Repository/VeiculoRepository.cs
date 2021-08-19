@@ -16,17 +16,51 @@ namespace LocadoraVeiculo.Repository
             sqlConnection.ConnectionString = connectionString;
             sqlConnection.Open();
 
-            string sql = $"insert into veiculo(placa, ano, marca, modelo) " + "values" +
+            string sql = $"insert into veiculo(placa, ano, marca, modelo) values(" +
                          $"'{veiculo.Placa}', " +
                          $"'{veiculo.Ano}', " +
                          $"'{veiculo.Marca}', " +
-                         $"'{veiculo.Modelo}'";
+                         $"'{veiculo.Modelo}')";
 
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.CommandText = sql;
             sqlCommand.Connection = sqlConnection;
             sqlCommand.ExecuteNonQuery();
 
+        }
+        public void Update(Veiculo veiculo)
+        {
+            string connectionString = @"Server=localhost\SQLEXPRESS;Database=db-locadora-veiculo;Trusted_Connection=True;";
+            SqlConnection sqlConnection = new SqlConnection();
+            sqlConnection.ConnectionString = connectionString;
+            sqlConnection.Open();
+
+            string sql = $"update veiculo set" +
+                         $" ano = '{veiculo.Ano}'," +
+                         $" marca = '{veiculo.Marca}'," +
+                         $" modelo = '{veiculo.Modelo}'" +
+                         $" where placa = '{veiculo.Placa}'";
+
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.CommandText = sql;
+            sqlCommand.Connection = sqlConnection;
+            sqlCommand.ExecuteNonQuery();
+
+        }
+        public void Delete(Veiculo veiculo)
+        {
+            string connectionString = @"Server=localhost\SQLEXPRESS;Database=db-locadora-veiculo;Trusted_Connection=True;";
+            SqlConnection sqlConnection = new SqlConnection();
+            sqlConnection.ConnectionString = connectionString;
+            sqlConnection.Open();
+
+            string sql = $"delete from veiculo" +
+                         $" where placa = {veiculo.Placa}";
+
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.CommandText = sql;
+            sqlCommand.Connection = sqlConnection;
+            sqlCommand.ExecuteNonQuery();
         }
     }
 }

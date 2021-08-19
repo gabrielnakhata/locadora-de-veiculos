@@ -14,5 +14,13 @@ namespace LocadoraVeiculo.Services
         {
             veiculoRepository.Insert(veiculo);
         }
+        public void Update(Veiculo veiculo)
+        {
+            veiculoRepository.Update(veiculo);
+        }
+        public void Delete(Veiculo veiculo)
+        {
+            veiculoRepository.Delete(veiculo);
+        }
     }
 }

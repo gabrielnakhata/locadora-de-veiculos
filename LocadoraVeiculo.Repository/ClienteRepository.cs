@@ -15,12 +15,12 @@ namespace LocadoraVeiculo.Repository
             sqlConnection.ConnectionString = connectionString;
             sqlConnection.Open();
 
-            string sql = $"insert into cliente(nome, cpf, email, celular, cnh) " + "values" +
+            string sql = $"insert into cliente(nome, cpf, email, celular, cnh) values(" +
                          $"'{cliente.Nome}', " +
                          $"'{cliente.Cpf}', " +
                          $"'{cliente.Email}', " +
                          $"'{cliente.Celular}', " +
-                         $"'{cliente.Cnh}'";
+                         $"'{cliente.Cnh}')";
 
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.CommandText = sql;
@@ -41,7 +41,7 @@ namespace LocadoraVeiculo.Repository
                          $" email = '{cliente.Email}'," +
                          $" celular = '{cliente.Celular}'," +
                          $" cnh = '{cliente.Cnh}'" +
-                         $" where Id = {cliente.Id} ";
+                         $" where Id = '{cliente.Id}'";
 
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.CommandText = sql;
@@ -56,7 +56,7 @@ namespace LocadoraVeiculo.Repository
             sqlConnection.Open();
 
             string sql = $"delete from cliente" +
-                         $" where Id = {id} ";
+                         $" where Id = {id}";
 
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.CommandText = sql;
