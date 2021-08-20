@@ -11,12 +11,14 @@ namespace poo_locadora_de_veiculos
             // "CTRL + K + C" = Comentar um Bloco selecionando...
             // "CTRL + K + U" = Descomentar um Bloco selecionando...
 
-            ClienteService clienteService = new ClienteService();
-            Cliente cliente = new Cliente();
+            // -------------------------------------------------------------------------------- //
+
+            //ClienteService clienteService = new ClienteService();
+            //Cliente cliente = new Cliente();
 
             //Console.WriteLine("Para [Insert] em cliente precione [Enter] ... ");
             //Console.ReadKey();
-            //Cliente cliente = new Cliente();
+
             //Console.WriteLine("Digite o nome do cliente...");
             //cliente.Nome = Console.ReadLine();
             //Console.WriteLine("Digite o E-mail...");
@@ -30,8 +32,11 @@ namespace poo_locadora_de_veiculos
 
             //clienteService.Insert(cliente);
 
+            // -------------------------------------------------------------------------------- //
+
             //Console.WriteLine("Para [Update] em veículo precione [Enter] ... ");
             //Console.ReadKey();
+
             //Console.WriteLine("Digite o id do cliente...");
             //cliente.Id = int.Parse(Console.ReadLine());
             //Console.WriteLine("Digite o nome do cliente...");
@@ -47,19 +52,24 @@ namespace poo_locadora_de_veiculos
 
             //clienteService.Update(cliente);
 
+            // -------------------------------------------------------------------------------- //
+
             //Console.WriteLine("Para [Delete] em cliente precione [Enter] ... ");
             //Console.ReadKey();
+
             //Console.WriteLine("Digite o id do cliente que deseja deletar...");
             //int idExclusao = int.Parse(Console.ReadLine());
 
             //clienteService.Delete(idExclusao);
 
-            VeiculoService veiculoService = new VeiculoService();
+            // -------------------------------------------------------------------------------- //
 
-            Veiculo veiculo = new Veiculo();
+            //VeiculoService veiculoService = new VeiculoService();
+            //Veiculo veiculo = new Veiculo();
 
             //Console.WriteLine("Para [Insert] em veículo precione [Enter] ... ");
             //Console.ReadKey();
+
             //Console.WriteLine("Digite a placa do veículo...");
             //veiculo.Placa = Console.ReadLine();
             //Console.WriteLine("Digite a ano do veículo...");
@@ -71,8 +81,11 @@ namespace poo_locadora_de_veiculos
 
             //veiculoService.Insert(veiculo);
 
+            // -------------------------------------------------------------------------------- //
+
             //Console.WriteLine("Para [Update] em veículo precione [Enter] ... ");
             //Console.ReadKey();
+
             //Console.WriteLine("Digite a placa do veículo...");
             //veiculo.Placa = Console.ReadLine();
             //Console.WriteLine("Digite a ano do veículo...");
@@ -84,14 +97,62 @@ namespace poo_locadora_de_veiculos
 
             //veiculoService.Update(veiculo);
 
-            Console.WriteLine("Para [Delete] em veículo precione [Enter] ... ");
+            // -------------------------------------------------------------------------------- //
+
+            //Console.WriteLine("Para [Delete] em veículo precione [Enter] ... ");
+            //Console.ReadKey();
+
+            //Console.WriteLine("Digite a placa do veículo que deseja deletar...");
+            //string placa = Console.ReadLine();
+
+            //veiculoService.Delete(placa);
+
+            // -------------------------------------------------------------------------------- //
+
+            ContratoService contratoService = new ContratoService();
+            Contrato contrato = new Contrato();
+
+            //Console.WriteLine("Para [Insert] em contrato precione [Enter] ... ");
+            //Console.ReadKey();
+
+            //Console.WriteLine("Digite o número do contrato...");
+            //contrato.Id = Console.ReadLine();
+            //Console.WriteLine("Digite a placa...");
+            //contrato.Placa = Console.ReadLine();
+            //Console.WriteLine("Digite o ID do cliente...");
+            //contrato.IdCliente = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Digite a data da contratação...");
+            //contrato.DataContratacao = DateTime.Parse(Console.ReadLine());
+            //Console.WriteLine("Digite a data prevista para devolução...");
+            //contrato.DataPrevistaDevolucao = DateTime.Parse(Console.ReadLine());
+            //Console.WriteLine("Digite a data de devolução...");
+            //contrato.DataDevolucao = DateTime.Parse(Console.ReadLine());
+            //Console.WriteLine("Digite o valor total do contrato...");
+            //contrato.Valor = decimal.Parse(Console.ReadLine());
+
+            //contratoService.Insert(contrato);
+
+            // -------------------------------------------------------------------------------- //
+
+            Console.WriteLine("Para [Update] em contrato precione [Enter] ... ");
             Console.ReadKey();
-            Console.WriteLine("Digite a placa do veículo que deseja deletar...");
-            string placaSelecionada = Console.ReadLine();
 
-            veiculoService.Delete(placaSelecionada);
+            Console.WriteLine("Digite o número do contrato...");
+            contrato.Id = Console.ReadLine();
+            Console.WriteLine("Digite a placa...");
+            contrato.Placa = Console.ReadLine();
+            Console.WriteLine("Digite o ID do cliente...");
+            contrato.IdCliente = int.Parse(Console.ReadLine());
+            Console.WriteLine("Digite a data da contratação...");
+            contrato.DataContratacao = DateTime.Parse(Console.ReadLine());
+            Console.WriteLine("Digite a data prevista para devolução...");
+            contrato.DataPrevistaDevolucao = DateTime.Parse(Console.ReadLine());
+            Console.WriteLine("Digite a data de devolução...");
+            contrato.DataDevolucao = DateTime.Parse(Console.ReadLine());
+            Console.WriteLine("Digite o valor total do contrato...");
+            contrato.Valor = decimal.Parse(Console.ReadLine());
 
-
+            contratoService.Update(contrato);
         }
     }
 }

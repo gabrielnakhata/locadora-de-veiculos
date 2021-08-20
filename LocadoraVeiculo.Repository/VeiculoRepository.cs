@@ -47,7 +47,7 @@ namespace LocadoraVeiculo.Repository
             sqlCommand.ExecuteNonQuery();
 
         }
-        public void Delete(Veiculo veiculo)
+        public void Delete(string placa)
         {
             string connectionString = @"Server=localhost\SQLEXPRESS;Database=db-locadora-veiculo;Trusted_Connection=True;";
             SqlConnection sqlConnection = new SqlConnection();
@@ -55,7 +55,7 @@ namespace LocadoraVeiculo.Repository
             sqlConnection.Open();
 
             string sql = $"delete from veiculo" +
-                         $" where placa = {veiculo.Placa}";
+                         $" where placa = '{placa}'";
 
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.CommandText = sql;

@@ -18,9 +18,9 @@ namespace LocadoraVeiculo.Services
         {
             veiculoRepository.Update(veiculo);
         }
-        public void Delete(Veiculo veiculo)
+        public void Delete(string placa)
         {
-            veiculoRepository.Delete(veiculo);
+            veiculoRepository.Delete(placa);
         }
     }
 }

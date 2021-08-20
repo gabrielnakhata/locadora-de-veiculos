@@ -9,7 +9,7 @@ namespace LocadoraVeiculo.Domain.Repositories
     {
         void Insert(Veiculo veiculo);
         void Update(Veiculo veiculo);
-        void Delete(Veiculo veiculo);
+        void Delete(string placa);
 
     }
 

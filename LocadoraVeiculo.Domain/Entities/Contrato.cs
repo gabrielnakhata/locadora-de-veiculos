@@ -4,7 +4,7 @@ namespace LocadoraVeiculo.Domain.Entities
 {
     public class Contrato
     {
-        public int Id { get; set; }
+        public string Id { get; set; }
         public string Placa { get; set; }
         public int IdCliente { get; set; }
         public DateTime DataContratacao {get; set;}
