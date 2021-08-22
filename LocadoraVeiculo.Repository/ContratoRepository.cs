@@ -15,13 +15,12 @@ namespace LocadoraVeiculo.Repository
             sqlConnection.ConnectionString = connectionString;
             sqlConnection.Open();
 
-            string sql = $"insert into contrato(numero, placa, id_cliente, data, data_previsao_devolucao, data_devolucao, valor) values(" +
-                         $"'{contrato.Id}', " +
+            string sql = $"insert into contrato(numero, placa, id_cliente, data, data_previsao_devolucao, valor) values(" +
+                         $"'{contrato.Numero}', " +
                          $"'{contrato.Placa}', " +
                          $"'{contrato.IdCliente}', " +
                          $"'{contrato.DataContratacao}', " +
                          $"'{contrato.DataPrevistaDevolucao}', " +
-                         $"'{contrato.DataDevolucao}', " +
                          $"'{contrato.Valor}')";
 
             SqlCommand sqlCommand = new SqlCommand();
@@ -30,7 +29,7 @@ namespace LocadoraVeiculo.Repository
             sqlCommand.ExecuteNonQuery();
         }
 
-        public void Update(Contrato contrato)
+        public void AlterarPrevisaoFechamento(string numeroContrato, DateTime dataPrevistaDevolucao, decimal valor)
         {
             string connectionString = @"Server=localhost\SQLEXPRESS;Database=db-locadora-veiculo;Trusted_Connection=True;";
             SqlConnection sqlConnection = new SqlConnection();
@@ -38,14 +37,9 @@ namespace LocadoraVeiculo.Repository
             sqlConnection.Open();
 
             string sql = $"Update contrato set" +
-                         $"'{contrato.Id}', " +
-                         $"'{contrato.Placa}', " +
-                         $"'{contrato.IdCliente}', " +
-                         $"'{contrato.DataContratacao}', " +
-                         $"'{contrato.DataPrevistaDevolucao}', " +
-                         $"'{contrato.DataDevolucao}', " +
-                         $"'{contrato.Valor}' " +
-                         $" where Id = '{contrato.Id}'";
+                         $" data_previsao_devolucao = '{dataPrevistaDevolucao.ToString("yyyyMMdd HH:mm")}', " +
+                         $" valor = {valor} " +                  // aspas simples somente para string e datas.
+                         $" where numero = '{numeroContrato}'";
 
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.CommandText = sql;

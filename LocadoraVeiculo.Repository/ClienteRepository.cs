@@ -41,7 +41,7 @@ namespace LocadoraVeiculo.Repository
                          $" email = '{cliente.Email}'," +
                          $" celular = '{cliente.Celular}'," +
                          $" cnh = '{cliente.Cnh}'" +
-                         $" where Id = '{cliente.Id}'";
+                         $" where Numero = '{cliente.Id}'";
 
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.CommandText = sql;
@@ -56,7 +56,7 @@ namespace LocadoraVeiculo.Repository
             sqlConnection.Open();
 
             string sql = $"delete from cliente" +
-                         $" where Id = {id}";
+                         $" where Numero = {id}";
 
             SqlCommand sqlCommand = new SqlCommand();
             sqlCommand.CommandText = sql;

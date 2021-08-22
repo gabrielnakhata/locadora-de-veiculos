@@ -38,7 +38,7 @@ namespace poo_locadora_de_veiculos
             //Console.ReadKey();
 
             //Console.WriteLine("Digite o id do cliente...");
-            //cliente.Id = int.Parse(Console.ReadLine());
+            //cliente.Numero = int.Parse(Console.ReadLine());
             //Console.WriteLine("Digite o nome do cliente...");
             //cliente.Nome = Console.ReadLine();
             //Console.WriteLine("Digite o E-mail...");
@@ -112,47 +112,31 @@ namespace poo_locadora_de_veiculos
             ContratoService contratoService = new ContratoService();
             Contrato contrato = new Contrato();
 
-            //Console.WriteLine("Para [Insert] em contrato precione [Enter] ... ");
-            //Console.ReadKey();
+            Console.WriteLine("para [insert] em contrato precione [enter] ... ");
+            Console.ReadKey();
 
-            //Console.WriteLine("Digite o número do contrato...");
-            //contrato.Id = Console.ReadLine();
-            //Console.WriteLine("Digite a placa...");
-            //contrato.Placa = Console.ReadLine();
-            //Console.WriteLine("Digite o ID do cliente...");
-            //contrato.IdCliente = int.Parse(Console.ReadLine());
-            //Console.WriteLine("Digite a data da contratação...");
-            //contrato.DataContratacao = DateTime.Parse(Console.ReadLine());
-            //Console.WriteLine("Digite a data prevista para devolução...");
-            //contrato.DataPrevistaDevolucao = DateTime.Parse(Console.ReadLine());
-            //Console.WriteLine("Digite a data de devolução...");
-            //contrato.DataDevolucao = DateTime.Parse(Console.ReadLine());
-            //Console.WriteLine("Digite o valor total do contrato...");
-            //contrato.Valor = decimal.Parse(Console.ReadLine());
+            Console.WriteLine("digite a placa...");
+            string placa = Console.ReadLine();
+            Console.WriteLine("digite o id do cliente...");
+            int idCliente = int.Parse(Console.ReadLine());
+            Console.WriteLine("digite a data prevista para devolução...");
+            DateTime dataPrevistaDevolucao = DateTime.Parse(Console.ReadLine());
 
-            //contratoService.Insert(contrato);
+            contratoService.Insert(placa, idCliente, dataPrevistaDevolucao);
 
             // -------------------------------------------------------------------------------- //
 
-            Console.WriteLine("Para [Update] em contrato precione [Enter] ... ");
-            Console.ReadKey();
+            //Console.WriteLine("Para [Update] em contrato precione [Enter] ... ");
+            //Console.ReadKey();
 
-            Console.WriteLine("Digite o número do contrato...");
-            contrato.Id = Console.ReadLine();
-            Console.WriteLine("Digite a placa...");
-            contrato.Placa = Console.ReadLine();
-            Console.WriteLine("Digite o ID do cliente...");
-            contrato.IdCliente = int.Parse(Console.ReadLine());
-            Console.WriteLine("Digite a data da contratação...");
-            contrato.DataContratacao = DateTime.Parse(Console.ReadLine());
-            Console.WriteLine("Digite a data prevista para devolução...");
-            contrato.DataPrevistaDevolucao = DateTime.Parse(Console.ReadLine());
-            Console.WriteLine("Digite a data de devolução...");
-            contrato.DataDevolucao = DateTime.Parse(Console.ReadLine());
-            Console.WriteLine("Digite o valor total do contrato...");
-            contrato.Valor = decimal.Parse(Console.ReadLine());
+            //Console.WriteLine("Digite o número do contrato...");
+            //string numero = Console.ReadLine();
+            //Console.WriteLine("Digite a Data do contrato...");
+            //DateTime dataContrato = DateTime.Parse(Console.ReadLine());
+            //Console.WriteLine("Digite a data prevista para devolução...");
+            //DateTime dataPrevistaDevolucao = DateTime.Parse(Console.ReadLine());
 
-            contratoService.Update(contrato);
+            //contratoService.AlterarPrevisaoFechamento(numero, dataContrato, dataPrevistaDevolucao);
         }
     }
 }
