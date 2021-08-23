@@ -1,14 +1,13 @@
 ﻿using LocadoraVeiculo.Domain.Entities;
+using LocadoraVeiculo.Domain.Repositories;
 using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Text;
 
 namespace LocadoraVeiculo.Repository
 {
-    public class ContratoRepository
+    public class ContratoRepository : IContratoRepository
     {
-        public void Insert(Contrato contrato)
+        public void RegistrarContrato (Contrato contrato)
         {
             string connectionString = @"Server=localhost\SQLEXPRESS;Database=db-locadora-veiculo;Trusted_Connection=True;";
             SqlConnection sqlConnection = new SqlConnection();

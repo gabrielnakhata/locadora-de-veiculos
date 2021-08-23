@@ -1,6 +1,5 @@
 ﻿using LocadoraVeiculo.Domain.Entities;
 using LocadoraVeiculo.Repository;
-using System;
 
 namespace LocadoraVeiculo.Services
 {
