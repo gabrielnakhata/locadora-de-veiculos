@@ -11,7 +11,7 @@ namespace LocadoraVeiculo.Services
         ContratoRepository contratoRepository = new ContratoRepository(); // Instância de uma classe...(objeto)
         FranquiaContratoRepository franquiaContratoRepository = new FranquiaContratoRepository();
 
-        public void Insert(string placa, int idCliente, DateTime dataPrevistaDevolucao)
+        public void RegistrarContrato(string placa, int idCliente, DateTime dataPrevistaDevolucao)
         {
             Contrato contrato = new Contrato();
             contrato.Numero = RetornarNumeroNovoContrato();
@@ -21,7 +21,7 @@ namespace LocadoraVeiculo.Services
             contrato.DataPrevistaDevolucao = dataPrevistaDevolucao;
             contrato.Valor = RetornarValorContrato(contrato.DataContratacao, contrato.DataPrevistaDevolucao);
 
-            contratoRepository.Insert(contrato);
+            contratoRepository.RegistrarContrato(contrato);
         }
         public void AlterarPrevisaoFechamento (string numero, DateTime dataContrato, DateTime dataPrevistaDevolucao)
         {

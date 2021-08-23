@@ -10,13 +10,15 @@ namespace poo_locadora_de_veiculos
         {
             // "CTRL + K + C" = Comentar um Bloco selecionando...
             // "CTRL + K + U" = Descomentar um Bloco selecionando...
+            // -----> O GERENCIADOR DE SOLUÇÕES = CTRL + ALT + L ...
+            // ----- "CTRL + SHIFT + B = COMPILAR...
 
             // -------------------------------------------------------------------------------- //
 
             //ClienteService clienteService = new ClienteService();
             //Cliente cliente = new Cliente();
 
-            //Console.WriteLine("Para [Insert] em cliente precione [Enter] ... ");
+            //Console.WriteLine("Para [RegistrarContrato] em cliente precione [Enter] ... ");
             //Console.ReadKey();
 
             //Console.WriteLine("Digite o nome do cliente...");
@@ -30,7 +32,7 @@ namespace poo_locadora_de_veiculos
             //Console.WriteLine("Digite o celular...");
             //cliente.Celular = Console.ReadLine();
 
-            //clienteService.Insert(cliente);
+            //clienteService.RegistrarContrato(cliente);
 
             // -------------------------------------------------------------------------------- //
 
@@ -67,7 +69,7 @@ namespace poo_locadora_de_veiculos
             //VeiculoService veiculoService = new VeiculoService();
             //Veiculo veiculo = new Veiculo();
 
-            //Console.WriteLine("Para [Insert] em veículo precione [Enter] ... ");
+            //Console.WriteLine("Para [RegistrarContrato] em veículo precione [Enter] ... ");
             //Console.ReadKey();
 
             //Console.WriteLine("Digite a placa do veículo...");
@@ -79,7 +81,7 @@ namespace poo_locadora_de_veiculos
             //Console.WriteLine("Digite o modelo do veículo...");
             //veiculo.Modelo = Console.ReadLine();
 
-            //veiculoService.Insert(veiculo);
+            //veiculoService.RegistrarContrato(veiculo);
 
             // -------------------------------------------------------------------------------- //
 
@@ -122,7 +124,7 @@ namespace poo_locadora_de_veiculos
             Console.WriteLine("digite a data prevista para devolução...");
             DateTime dataPrevistaDevolucao = DateTime.Parse(Console.ReadLine());
 
-            contratoService.Insert(placa, idCliente, dataPrevistaDevolucao);
+            contratoService.RegistrarContrato(placa, idCliente, dataPrevistaDevolucao);
 
             // -------------------------------------------------------------------------------- //
 

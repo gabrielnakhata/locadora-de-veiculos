@@ -2,7 +2,7 @@
 using LocadoraVeiculo.Domain.Repositories;
 using System.Data.SqlClient;
 
-/// --------------> O GERENCIADOR DE SOLUÇÕES = CTRL + ALT + L ...
+
 
 namespace LocadoraVeiculo.Repository
 {
