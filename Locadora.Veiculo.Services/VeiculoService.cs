@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace LocadoraVeiculo.Services
+namespace Locadora.Veiculo.Services
 {
     public class VeiculoService
     {

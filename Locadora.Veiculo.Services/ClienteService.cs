@@ -1,7 +1,7 @@
 ﻿using LocadoraVeiculo.Domain.Entities;
 using LocadoraVeiculo.Repository;
 
-namespace LocadoraVeiculo.Services
+namespace Locadora.Veiculo.Services
 {
     public class ClienteService
     {

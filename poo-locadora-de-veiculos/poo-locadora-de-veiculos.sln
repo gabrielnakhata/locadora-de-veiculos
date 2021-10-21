@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LocadoraVeiculo.Application
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraVeiculo.Domain", "..\LocadoraVeiculo.Domain\LocadoraVeiculo.Domain.csproj", "{6F059107-37C9-4956-9712-143C5947B7DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraVeiculo.Services", "..\Locadora.Veiculo.Services\LocadoraVeiculo.Services.csproj", "{13A15FA4-0A75-4DD6-B430-9D779A4F93B7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Locadora.Veiculo.Services", "..\Locadora.Veiculo.Services\Locadora.Veiculo.Services.csproj", "{13A15FA4-0A75-4DD6-B430-9D779A4F93B7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Application", "1 - Application", "{E0B966EC-99A2-40B7-B45D-A240731DE307}"
 EndProject

@@ -4,7 +4,7 @@ using LocadoraVeiculo.Services.Infrastructure;
 /// Quando instanciar a classe referida, "alt + enter", aplicara o using referida...
 using System;
 
-namespace LocadoraVeiculo.Services
+namespace Locadora.Veiculo.Services
 {
     public class ContratoService
     {
