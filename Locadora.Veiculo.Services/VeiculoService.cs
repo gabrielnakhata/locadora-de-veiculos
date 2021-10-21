@@ -8,7 +8,7 @@ namespace LocadoraVeiculo.Services
 {
     public class VeiculoService
     {
-        VeiculoRepository veiculoRepository = new VeiculoRepository(); // Instância de uma classe...(objeto)
+        VeiculoRepository veiculoRepository = new VeiculoRepository();
 
         public void Insert(Veiculo veiculo)
         {

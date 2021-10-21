@@ -9,7 +9,7 @@ namespace LocadoraVeiculo.Repository
     {
         public void RegistrarContrato (Contrato contrato)
         {
-            string connectionString = @"Server=localhost\SQLEXPRESS;Database=db-locadora-veiculo;Trusted_Connection=True;";
+            string connectionString = @"Server=DESKTOP-UG390NJ;Database=db-locadora-veiculo;Trusted_Connection=True;";
             SqlConnection sqlConnection = new SqlConnection();
             sqlConnection.ConnectionString = connectionString;
             sqlConnection.Open();
@@ -30,7 +30,7 @@ namespace LocadoraVeiculo.Repository
 
         public void AlterarPrevisaoFechamento(string numeroContrato, DateTime dataPrevistaDevolucao, decimal valor)
         {
-            string connectionString = @"Server=localhost\SQLEXPRESS;Database=db-locadora-veiculo;Trusted_Connection=True;";
+            string connectionString = @"Server=DESKTOP-UG390NJ;Database=db-locadora-veiculo;Trusted_Connection=True;";
             SqlConnection sqlConnection = new SqlConnection();
             sqlConnection.ConnectionString = connectionString;
             sqlConnection.Open();

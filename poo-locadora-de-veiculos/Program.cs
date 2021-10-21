@@ -15,24 +15,24 @@ namespace poo_locadora_de_veiculos
 
             // -------------------------------------------------------------------------------- //
 
-            //ClienteService clienteService = new ClienteService();
-            //Cliente cliente = new Cliente();
+            ClienteService clienteService = new ClienteService();
+            Cliente cliente = new Cliente();
 
-            //Console.WriteLine("Para [RegistrarContrato] em cliente precione [Enter] ... ");
-            //Console.ReadKey();
+            Console.WriteLine("Para [Registrar Cliente] em cliente precione [Enter] ... ");
+            Console.ReadKey();
 
-            //Console.WriteLine("Digite o nome do cliente...");
-            //cliente.Nome = Console.ReadLine();
-            //Console.WriteLine("Digite o E-mail...");
-            //cliente.Email = Console.ReadLine();
-            //Console.WriteLine("Digite o CPF...");
-            //cliente.Cpf = Console.ReadLine();
-            //Console.WriteLine("Digite a CNH...");
-            //cliente.Cnh = Console.ReadLine();
-            //Console.WriteLine("Digite o celular...");
-            //cliente.Celular = Console.ReadLine();
+            Console.WriteLine("Digite o nome do cliente...");
+            cliente.Nome = Console.ReadLine();
+            Console.WriteLine("Digite o E-mail...");
+            cliente.Email = Console.ReadLine();
+            Console.WriteLine("Digite o CPF...");
+            cliente.Cpf = Console.ReadLine();
+            Console.WriteLine("Digite a CNH...");
+            cliente.Cnh = Console.ReadLine();
+            Console.WriteLine("Digite o celular...");
+            cliente.Celular = Console.ReadLine();
 
-            //clienteService.RegistrarContrato(cliente);
+            clienteService.Insert(cliente);
 
             // -------------------------------------------------------------------------------- //
 
@@ -69,7 +69,7 @@ namespace poo_locadora_de_veiculos
             //VeiculoService veiculoService = new VeiculoService();
             //Veiculo veiculo = new Veiculo();
 
-            //Console.WriteLine("Para [RegistrarContrato] em veículo precione [Enter] ... ");
+            //Console.WriteLine("Para [Registrar Veículo] em veículo precione [Enter] ... ");
             //Console.ReadKey();
 
             //Console.WriteLine("Digite a placa do veículo...");
@@ -81,7 +81,7 @@ namespace poo_locadora_de_veiculos
             //Console.WriteLine("Digite o modelo do veículo...");
             //veiculo.Modelo = Console.ReadLine();
 
-            //veiculoService.RegistrarContrato(veiculo);
+            //veiculoService.Insert(veiculo);
 
             // -------------------------------------------------------------------------------- //
 
@@ -111,20 +111,20 @@ namespace poo_locadora_de_veiculos
 
             // -------------------------------------------------------------------------------- //
 
-            ContratoService contratoService = new ContratoService();
-            Contrato contrato = new Contrato();
+            //ContratoService contratoService = new ContratoService();
+            //Contrato contrato = new Contrato();
 
-            Console.WriteLine("para [insert] em contrato precione [enter] ... ");
-            Console.ReadKey();
+            //Console.WriteLine("para [insert] em contrato precione [enter] ... ");
+            //Console.ReadKey();
 
-            Console.WriteLine("digite a placa...");
-            string placa = Console.ReadLine();
-            Console.WriteLine("digite o id do cliente...");
-            int idCliente = int.Parse(Console.ReadLine());
-            Console.WriteLine("digite a data prevista para devolução...");
-            DateTime dataPrevistaDevolucao = DateTime.Parse(Console.ReadLine());
+            //Console.WriteLine("digite a placa...");
+            //string placa = Console.ReadLine();
+            //Console.WriteLine("digite o id do cliente...");
+            //int idCliente = int.Parse(Console.ReadLine());
+            //Console.WriteLine("digite a data prevista para devolução...");
+            //DateTime dataPrevistaDevolucao = DateTime.Parse(Console.ReadLine());
 
-            contratoService.RegistrarContrato(placa, idCliente, dataPrevistaDevolucao);
+            //contratoService.RegistrarContrato(placa, idCliente, dataPrevistaDevolucao);
 
             // -------------------------------------------------------------------------------- //
 
