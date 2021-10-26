@@ -15,28 +15,28 @@ namespace Application
 
             // -------------------------------------------------------------------------------- //
 
-            ClienteService clienteService = new ClienteService();
-            Cliente cliente = new Cliente();
+            //ClienteService clienteService = new ClienteService();
+            //Cliente cliente = new Cliente();
 
-            Console.WriteLine("Para [Registrar Cliente] em cliente precione [Enter] ... ");
-            Console.ReadKey();
-
-            //Console.WriteLine("Para [RegistrarContrato] em cliente precione [Enter] ... ");
+            //Console.WriteLine("Para [Registrar Cliente] em cliente precione [Enter] ... ");
             //Console.ReadKey();
 
+            ////Console.WriteLine("Para [RegistrarContrato] em cliente precione [Enter] ... ");
+            ////Console.ReadKey();
 
-            Console.WriteLine("Digite o nome do cliente...");
-            cliente.Nome = Console.ReadLine();
-            Console.WriteLine("Digite o E-mail...");
-            cliente.Email = Console.ReadLine();
-            Console.WriteLine("Digite o CPF...");
-            cliente.Cpf = Console.ReadLine();
-            Console.WriteLine("Digite a CNH...");
-            cliente.Cnh = Console.ReadLine();
-            Console.WriteLine("Digite o celular...");
-            cliente.Celular = Console.ReadLine();
 
-            clienteService.Insert(cliente);
+            //Console.WriteLine("Digite o nome do cliente...");
+            //cliente.Nome = Console.ReadLine();
+            //Console.WriteLine("Digite o E-mail...");
+            //cliente.Email = Console.ReadLine();
+            //Console.WriteLine("Digite o CPF...");
+            //cliente.Cpf = Console.ReadLine();
+            //Console.WriteLine("Digite a CNH...");
+            //cliente.Cnh = Console.ReadLine();
+            //Console.WriteLine("Digite o celular...");
+            //cliente.Celular = Console.ReadLine();
+
+            //clienteService.Insert(cliente);
             // -------------------------------------------------------------------------------- //
 
             //Console.WriteLine("Para [Update] em veículo precione [Enter] ... ");

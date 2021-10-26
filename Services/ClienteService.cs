@@ -1,25 +1,38 @@
 ﻿using Domain.Entities;
+using Domain.Interfaces;
+using Domain.Repositories;
 using Repository;
+using System.Collections.Generic;
 
 namespace Services
 {
-    public class ClienteService
+    public class ClienteService : IClienteService
     {
-        ClienteRepository clienteRepository = new ClienteRepository(); // Instância de uma classe...(objeto)
+        IClienteRepository ClienteRepository;
 
-        public void Insert(Cliente cliente) // procedimento na camada de serviço, para inserir um cliente
+        public ClienteService(IClienteRepository clienteRepository)
         {
-            clienteRepository.Insert(cliente);
+            ClienteRepository = clienteRepository;
         }
 
-        public void Update(Cliente cliente)
+        public void Cadastrar(Cliente cliente)
         {
-            clienteRepository.Update(cliente);  
+            ClienteRepository.Create(cliente);
         }
 
-        public void Delete(int id)
+        public Cliente CarregarRegistro(int id)
         {
-            clienteRepository.Delete(id);
+            return ClienteRepository.Read(id);
+        }
+
+        public void Excluir(int id)
+        {
+            ClienteRepository.Delete(id);
+        }
+
+        public IEnumerable<Cliente> Listagem()
+        {
+            return ClienteRepository.Read();
         }
     }
 }
