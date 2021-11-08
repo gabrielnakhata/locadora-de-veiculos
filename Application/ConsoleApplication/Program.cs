@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using Domain.Repositories;
 using Services;
 using System;
 
@@ -15,7 +16,7 @@ namespace Application
 
             // -------------------------------------------------------------------------------- //
 
-            //ClienteService clienteService = new ClienteService();
+           // ClienteService clienteService = new ClienteService(IClienteRepository);
             //Cliente cliente = new Cliente();
 
             //Console.WriteLine("Para [Registrar Cliente] em cliente precione [Enter] ... ");
@@ -36,7 +37,7 @@ namespace Application
             //Console.WriteLine("Digite o celular...");
             //cliente.Celular = Console.ReadLine();
 
-            //clienteService.Insert(cliente);
+            //clienteService.Cadastrar(cliente);
             // -------------------------------------------------------------------------------- //
 
             //Console.WriteLine("Para [Update] em veículo precione [Enter] ... ");

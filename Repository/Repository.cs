@@ -2,43 +2,51 @@
 using Microsoft.SqlServer.Management.Smo;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Common;
+using System.Data.SqlClient;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Repository
 {
-    public abstract class Repository
-    { 
-    //    <TEntidade> : DbConnection, IRepository<TEntidade>
-    //    where TEntidade : codigo, new()
+    public abstract class Repository<TEntidade> : IRepository<TEntidade>
+        where TEntidade : class, new()
 
-    //{
-    //    protected DbConnection Db;
-    //    protected DbConnection<TEntidade> Dbset;
-    //    public Repository(DbConnection dbConnection)
-    //    {
-    //        Db = dbConnection;
-    //        DbConnection = Db.Set<TEntidade>();
-    //    }
+    {
+        private SqlConnection conn;
+        private string connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
 
-    //    public void Create(TEntidade Entity)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
+        private void OpenConnection()
+        {
+            conn = new SqlConnection();
+            conn.ConnectionString = connectionString;
+            conn.Open();
+        }
 
-    //    public void Delete(int id)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
+        private void ExecuteQuery(string sql)
+        {
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.CommandText = sql;
+            sqlCommand.Connection = conn;
+            sqlCommand.ExecuteNonQuery();
+        }
 
-    //    public TEntidade Read(int id)
-    //    {
-    //        throw new NotImplementedException();
-    //    }
+        public void ExecuteCommand(string sql)
+        {
+            OpenConnection();
+            ExecuteQuery(sql);
+        }
 
-    //    public IEnumerable<TEntidade> Read()
-    //    {
-    //        throw new NotImplementedException();
-    //    }
+        public TEntidade Read(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<TEntidade> Read()
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

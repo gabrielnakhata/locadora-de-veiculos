@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Domain.Entities;
+using Domain.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MVCApplication.Models;
 using System;
@@ -13,13 +15,24 @@ namespace MVCApplication.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IClienteService _clienteService; //DECLAREI
+
+
+        public HomeController(ILogger<HomeController> logger, IClienteService clienteService) // INJETEI
         {
             _logger = logger;
+            _clienteService = clienteService;
         }
 
         public IActionResult Index()
         {
+            Cliente cliente = new Cliente()
+            {
+                Id = 1022
+            };
+
+            _clienteService.Excluir(cliente.Id);
+
             return View();
         }
 

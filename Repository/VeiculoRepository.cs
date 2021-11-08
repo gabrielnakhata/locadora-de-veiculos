@@ -80,5 +80,10 @@ namespace Repository
         {
             throw new System.NotImplementedException();
         }
+
+        public void ExecuteCommand(string sql)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

@@ -8,7 +8,8 @@ namespace Domain.Interfaces
          where TEntidade : class
     {
         IEnumerable<TEntidade> Listagem();
-        void Cadastrar(TEntidade categoria);
+        void Cadastrar(TEntidade entidade);
+        void Atualizar(TEntidade entidade);
         TEntidade CarregarRegistro(int id);
         void Excluir(int id);
     }

@@ -15,9 +15,14 @@ namespace Services
             ClienteRepository = clienteRepository;
         }
 
-        public void Cadastrar(Cliente cliente)
+        public void Atualizar(Cliente entidade)
         {
-            ClienteRepository.Create(cliente);
+            ClienteRepository.Update(entidade);
+        }
+
+        public void Cadastrar(Cliente entidade)
+        {
+            ClienteRepository.Create(entidade);
         }
 
         public Cliente CarregarRegistro(int id)

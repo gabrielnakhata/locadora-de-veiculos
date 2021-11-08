@@ -66,5 +66,10 @@ namespace Repository
         {
             throw new NotImplementedException();
         }
+
+        public void ExecuteCommand(string sql)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
