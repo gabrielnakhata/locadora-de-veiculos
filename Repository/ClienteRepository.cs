@@ -14,6 +14,7 @@ namespace Repository
                             $"'{cliente.Email}', " +
                             $"'{cliente.Celular}', " +
                             $"'{cliente.Cnh}')";
+
             ExecuteCommand(sql);
         }
 

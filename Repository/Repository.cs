@@ -1,12 +1,7 @@
 ﻿using Domain.Repositories;
-using Microsoft.SqlServer.Management.Smo;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data.Common;
 using System.Data.SqlClient;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Repository
 {
@@ -40,12 +35,12 @@ namespace Repository
 
         public TEntidade Read(int id)
         {
-            throw new NotImplementedException();
+            return Read(id);
         }
 
         public IEnumerable<TEntidade> Read()
         {
-            throw new NotImplementedException();
+            return Read();
         }
 
     }

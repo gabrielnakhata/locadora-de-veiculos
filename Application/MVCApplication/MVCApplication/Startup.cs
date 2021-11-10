@@ -1,9 +1,16 @@
+using Domain.Interfaces;
+using Domain.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MVCApplication.Servico;
+using MVCApplication.Servico.Interfaces;
+using Repository;
+using Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,9 +30,28 @@ namespace MVCApplication
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                options.CheckConsentNeeded = context => true;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+
+            services.AddHttpContextAccessor();
+            services.AddSession();
+
+            //Servico Aplicação:
+            services.AddScoped<IServicoAplicacaoCliente, ServicoAplicacaoCliente>();
+
+            //Domínio:
+            services.AddScoped<IClienteService, ClienteService>();
+
+            //Repositório:
+            services.AddScoped<IClienteRepository, ClienteRepository>();
+
             DependencyResolver.Register(services);
             services.AddControllersWithViews();
 
+            services.AddMvc().SetCompatibilityVersion(Microsoft.AspNetCore.Mvc.CompatibilityVersion.Version_3_0);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,6 +69,7 @@ namespace MVCApplication
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseSession();
 
             app.UseRouting();
 

@@ -14,7 +14,6 @@ namespace Services
         {
             ClienteRepository = clienteRepository;
         }
-
         public void Atualizar(Cliente entidade)
         {
             ClienteRepository.Update(entidade);
