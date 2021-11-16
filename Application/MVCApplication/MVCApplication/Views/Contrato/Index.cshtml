@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["title"] = "Contrato";
+}
+@model List<MVCApplication.Models.ContratoViewModel>;
+
+<h2>Contrato</h2>
+<hr />
+
+<table class="table table-bordered">
+    <thead>
+        <tr style="background-color:#f6f6f6">
+            <th>Número Contrato</th>
+            <th>Id Cliente</th>
+            <th>Data da Contratação</th>
+            <th>Data prevista para Devolução</th>
+            <th>Data da devolução</th>
+            <th>Valor</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr onclick="Editar(@item.IdCliente)" style="cursor:pointer;">
+                <td>@item.Numero</td>
+                <td>@item.IdCliente</td>
+                <td>@item.DataContratacao</td>
+                <td>@item.DataPrevistaDevolucao</td>
+                <td>@item.DataDevolucao</td>
+                <td>@item.Valor</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+
+<button type="button" class="btn btn-block btn-primary" onclick="Cadastrar()">Cadastrar Contrato</button>
+
+<script>
+    function Editar(Codigo) {
+        window.location = window.origin + "\\Contrato\\Cadastro\\" + Codigo;
+    }
+    function Cadastrar() {
+        window.location = window.origin + "\\Contrato\\Cadastro";
+    }
+</script>

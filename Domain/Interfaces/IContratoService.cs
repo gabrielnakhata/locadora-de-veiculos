@@ -2,7 +2,7 @@
 
 namespace Domain.Interfaces
 {
-    public interface IClienteService : IServicoCRUD<Cliente>
+    public interface IContratoService : IServicoCRUD<Contrato>
     {
     }
 }

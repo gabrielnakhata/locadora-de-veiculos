@@ -12,9 +12,11 @@ namespace MVCApplication
         {
             //Services
             services.AddTransient<IClienteService, ClienteService>();
+            services.AddTransient<IContratoService, ContratoService>();
 
             //Repositories
             services.AddTransient<IClienteRepository, ClienteRepository>();
+            services.AddTransient<IContratoRepository, ContratoRepository>();
         }
     }
 }

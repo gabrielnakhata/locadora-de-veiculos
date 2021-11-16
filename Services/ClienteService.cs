@@ -8,6 +8,7 @@ namespace Services
 {
     public class ClienteService : IClienteService
     {
+
         IClienteRepository ClienteRepository;
 
         public ClienteService(IClienteRepository clienteRepository)

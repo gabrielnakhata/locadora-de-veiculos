@@ -16,9 +16,9 @@ namespace Repository
 
         public void Conectar()
         {
-            try
+            try // Experimente ...
             {
-                if (conn != null)
+                if (conn != null) // Se
                 {
                     conn.Close();
                 }
@@ -27,7 +27,7 @@ namespace Repository
                 conn.ConnectionString = connectionString;
                 conn.Open();
             }
-            catch (SqlException ex)
+            catch (SqlException ex) // pegar ...
             {
                 throw new Exception("Erro ao tentar estabelecer conexão com o Banco de Dados: " + ex.Message);
             }
