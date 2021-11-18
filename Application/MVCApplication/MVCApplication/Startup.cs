@@ -42,14 +42,17 @@ namespace MVCApplication
             //Servico Aplicação:
             services.AddScoped<IServicoAplicacaoCliente, ServicoAplicacaoCliente>();
             services.AddScoped<IServicoAplicacaoContrato, ServicoAplicacaoContrato>();
+            services.AddScoped<IServicoAplicacaoCategoria, ServicoAplicacaoCategoria>();
 
             //Domínio:
             services.AddScoped<IClienteService, ClienteService>();
             services.AddScoped<IContratoService, ContratoService>();
+            services.AddScoped<ICategoriaService, CategoriaService>();
 
             //Repositório:
             services.AddScoped<IClienteRepository, ClienteRepository>();
             services.AddScoped<IContratoRepository, ContratoRepository>();
+            services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 
             DependencyResolver.Register(services);
             services.AddControllersWithViews();
