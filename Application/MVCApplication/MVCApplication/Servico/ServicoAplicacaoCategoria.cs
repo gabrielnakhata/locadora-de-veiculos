@@ -19,11 +19,14 @@ namespace MVCApplication.Servico
         {
             Categoria item = new()
             {
-                Codigo = (int)categoria.Codigo,
+                Codigo = categoria.Codigo,
                 Descricao = categoria.Descricao
             };
 
-            CategoriaService.Cadastrar(item);
+            if (categoria.Codigo == null)
+                CategoriaService.Cadastrar(item);
+            else
+                CategoriaService.Atualizar(item);
         }
 
 

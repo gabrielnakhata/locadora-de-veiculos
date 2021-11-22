@@ -2,6 +2,7 @@
 using Domain.Interfaces;
 using Domain.Repositories;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Services
 {
@@ -26,7 +27,7 @@ namespace Services
 
         public Categoria CarregarRegistro(int id)
         {
-            return CategoriaRepository.Read(id);
+            return CategoriaRepository.List(id).FirstOrDefault();
         }
 
         public void Excluir(int id)
@@ -36,7 +37,7 @@ namespace Services
 
         public IEnumerable<Categoria> Listagem()
         {
-            return CategoriaRepository.Read();
+            return CategoriaRepository.List(null);
         }
     }
 }

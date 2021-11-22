@@ -2,7 +2,7 @@
 
 namespace Domain.Repositories
 {
-    public interface IVeiculoRepository : IRepository<Veiculo>
+    public interface IVeiculoRepository
     {
         void Insert(Veiculo veiculo);
         void Update(Veiculo veiculo);

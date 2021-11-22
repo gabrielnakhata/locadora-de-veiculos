@@ -1,12 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System.Data;
 
 namespace Domain.Repositories
 {
-    public interface IRepository<TEntidade>
-    where TEntidade : class
+    public interface IRepository
     {
         void ExecuteCommand(string sql);
-        TEntidade Read(int id);
-        IEnumerable<TEntidade> Read();
+        DataTable Read(string sql);
     }
 }

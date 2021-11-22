@@ -1,16 +1,15 @@
 ﻿using Domain.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace Repository
 {
-    public abstract class Repository<TEntidade> : IRepository<TEntidade>
-        where TEntidade : class, new()
-
+    public abstract class Repository : IRepository
     {
         private SqlConnection conn;
-        private string connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
+        private readonly string connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
 
         private void OpenConnection()
         {
@@ -33,14 +32,16 @@ namespace Repository
             ExecuteQuery(sql);
         }
 
-        public TEntidade Read(int id)
+        public DataTable Read(string sql)
         {
-            return Read(id);
-        }
-
-        public IEnumerable<TEntidade> Read()
-        {
-            return Read();
+            OpenConnection();
+            SqlCommand sqlCommand = new SqlCommand();
+            sqlCommand.CommandText = sql;
+            sqlCommand.Connection = conn;
+            SqlDataReader reader = sqlCommand.ExecuteReader();
+            DataTable dataTable = new DataTable();
+            dataTable.Load(reader);
+            return dataTable;
         }
 
     }

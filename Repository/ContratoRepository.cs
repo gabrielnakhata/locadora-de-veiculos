@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 
 namespace Repository
 {
-    public class ContratoRepository : Repository<Contrato>, IContratoRepository
+    public class ContratoRepository : Repository, IContratoRepository
     {
         public void RegistrarContrato (Contrato contrato)
         {
@@ -14,7 +14,7 @@ namespace Repository
                          $"'{contrato.Numero}', " +
                          $"'{contrato.Placa}', " +
                          $"'{contrato.IdCliente}', " +
-                         $"'{contrato.DataContratacao}', " +
+                         $"'{contrato.Data}', " +
                          $"'{contrato.DataPrevistaDevolucao}', " +
                          $"'{contrato.Valor}')";
 
@@ -26,22 +26,45 @@ namespace Repository
            
             string sql = $"Update contrato set" +
                          $" data_previsao_devolucao = '{dataPrevistaDevolucao:yyyyMMdd HH:mm}', " +
-                         $" valor = {valor} " +                  // aspas simples somente para string e datas.
+                         $" valor = {valor} " +                 
                          $" where numero = '{numeroContrato}'";
 
             ExecuteCommand(sql);
         }
-        public void Delete(int id)
+        public void Delete(string id)
         {
             string sql = $"delete from contrato" +
-                         $" where id = {id}";
+                         $" where numero = {id}";
 
             ExecuteCommand(sql);
         }
 
-        public void AlterarPrevisaoFechamento(Contrato contrato)
+        public IEnumerable<Contrato> List(int? id)
         {
-            throw new NotImplementedException();
+            string sql = $"select numero, placa, id_cliente, data, data_prevista_devolucao, data_devolucao from contrato ";
+            if (id != null) { sql += $" where id_cliente = {id}"; }
+
+            var dataTable = Read(sql);
+
+            List<Contrato> listaContratos = new List<Contrato>();
+
+            for (int i = 0; i < dataTable.Rows.Count; i++)
+            {
+                Contrato contrato = new Contrato()
+                {
+                    Numero = dataTable.Rows[i][0].ToString(),
+                    Placa = dataTable.Rows[i][1].ToString(),
+                    IdCliente = int.Parse(dataTable.Rows[i][2].ToString()),
+                    Data = DateTime.Parse(dataTable.Rows[i][3].ToString()),
+                    DataPrevistaDevolucao = DateTime.Parse(dataTable.Rows[i][4].ToString()),
+                    DataDevolucao = DateTime.Parse(dataTable.Rows[i][5].ToString()),
+                    Valor = decimal.Parse(dataTable.Rows[i][6].ToString())
+
+                };
+
+                listaContratos.Add(contrato);
+            }
+            return listaContratos;
         }
     }
 }

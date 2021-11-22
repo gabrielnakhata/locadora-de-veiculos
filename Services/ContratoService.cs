@@ -3,6 +3,7 @@ using Domain.Interfaces;
 using Domain.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Services
 {
@@ -15,41 +16,33 @@ namespace Services
         {
             ContratoRepository = contratoRepository;        
         }
-        public void Atualizar(Contrato entidade)
+
+        public void Atualizar(Contrato contrato)
         {
-            ContratoRepository.AlterarPrevisaoFechamento(entidade);
+            ContratoRepository.AlterarPrevisaoFechamento(contrato); // o método não passa os parametros...
         }
 
-        public void Cadastrar(Contrato entidade)
+        public void Cadastrar(Contrato contrato)
         {
-            ContratoRepository.RegistrarContrato(entidade);
+            ContratoRepository.RegistrarContrato(contrato);
         }
-       
+
         public Contrato CarregarRegistro(int id)
         {
-            return ContratoRepository.Read(id);
+            return ContratoRepository.List(id).FirstOrDefault();
         }
+
         public void Excluir(int id)
         {
-            ContratoRepository.Delete(id);
+            ContratoRepository.Delete(id); // numero contrato é string
         }
+
         public IEnumerable<Contrato> Listagem()
         {
-            return ContratoRepository.Read();
+            return ContratoRepository.List(null);
         }
 
-        //public void RegistrarContrato(string placa, int idCliente, DateTime dataPrevistaDevolucao)
-        //{
-        //    Contrato contrato = new Contrato();
-        //    contrato.Numero = RetornarNumeroNovoContrato();
-        //    contrato.Placa = placa;
-        //    contrato.IdCliente = idCliente;
-        //    contrato.DataContratacao = DateTime.Now;
-        //    contrato.DataPrevistaDevolucao = dataPrevistaDevolucao;
-        //    contrato.Valor = RetornarValorContrato(contrato.DataContratacao, contrato.DataPrevistaDevolucao);
 
-        //    ContratoRepository.RegistrarContrato(contrato);
-        //}
         //public void AlterarPrevisaoFechamento (string numero, DateTime dataContrato, DateTime dataPrevistaDevolucao)
         //{
         //    decimal valor = RetornarValorContrato(dataContrato, dataPrevistaDevolucao);

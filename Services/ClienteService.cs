@@ -1,33 +1,32 @@
 ﻿using Domain.Entities;
 using Domain.Interfaces;
 using Domain.Repositories;
-using Repository;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Services
 {
     public class ClienteService : IClienteService
     {
-
         IClienteRepository ClienteRepository;
 
         public ClienteService(IClienteRepository clienteRepository)
         {
             ClienteRepository = clienteRepository;
         }
-        public void Atualizar(Cliente entidade)
+        public void Atualizar(Cliente cliente)
         {
-            ClienteRepository.Update(entidade);
+            ClienteRepository.Update(cliente);
         }
 
-        public void Cadastrar(Cliente entidade)
+        public void Cadastrar(Cliente cliente)
         {
-            ClienteRepository.Create(entidade);
+            ClienteRepository.Create(cliente);
         }
 
         public Cliente CarregarRegistro(int id)
         {
-            return ClienteRepository.Read(id);
+            return ClienteRepository.List(id).FirstOrDefault();
         }
 
         public void Excluir(int id)
@@ -37,7 +36,7 @@ namespace Services
 
         public IEnumerable<Cliente> Listagem()
         {
-            return ClienteRepository.Read();
+            return ClienteRepository.List(null);
         }
     }
 }

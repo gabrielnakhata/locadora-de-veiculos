@@ -17,7 +17,7 @@ namespace MVCApplication.Servico
         }
         public void Cadastrar(ClienteViewModel cliente)
         {
-            Cliente item = new ()
+            Cliente item = new()
             {
                 Id = cliente.Id,
                 Nome = cliente.Nome,
@@ -27,8 +27,12 @@ namespace MVCApplication.Servico
                 Cnh = cliente.Cnh
             };
 
-            ClienteService.Cadastrar(item);
+            if (cliente.Id == null)
+                ClienteService.Cadastrar(item);
+            else
+                ClienteService.Atualizar(item);
         }
+
         public ClienteViewModel CarregarRegistro(int codigoCliente)
         {
             var registro = ClienteService.CarregarRegistro(codigoCliente);
