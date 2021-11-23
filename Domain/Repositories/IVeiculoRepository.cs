@@ -1,4 +1,5 @@
 ﻿using Domain.Entities;
+using System.Collections.Generic;
 
 namespace Domain.Repositories
 {
@@ -7,5 +8,6 @@ namespace Domain.Repositories
         void Insert(Veiculo veiculo);
         void Update(Veiculo veiculo);
         void Delete(string placa);
+        public IEnumerable<Veiculo> List(int? id);
     }
 }
