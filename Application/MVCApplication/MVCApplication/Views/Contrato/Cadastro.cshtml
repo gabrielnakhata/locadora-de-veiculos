@@ -2,7 +2,7 @@
     ViewData["title"] = "Cadastro | Contrato";
 }
 
-<h2>Contratos</h2>
+<h2>Registro de contratos</h2>
 <hr />
 
 @model MVCApplication.Models.ContratoViewModel
@@ -16,7 +16,7 @@
 
     <div class="form-group">
         <div class="col-4">
-            <label>Cliente Cadastrado</label>
+            <label>Selecione um Cliente do cadastro</label>
             <select asp-for="IdCliente" asp-items="@Model.ListaClientes" class="form-control" input-lg></select>
             <span asp-validation-for="IdCliente" class="text-danger"></span>
         </div>
@@ -24,20 +24,20 @@
     <div class="form-group">
         <div class="col-4">
             <label>Data da contratação</label>
-            <input asp-for="DataContratacao" type="date" value="@Model.DataContratacao" class="form-control" />
-            <span asp-validation-for="DataContratacao" class="text-danger"></span>
+            <input asp-for="Data" type="date" value="@Model.Data" class="form-control" />
+            <span asp-validation-for="Data" class="text-danger"></span>
         </div>
     </div>
     <div class="form-group">
         <div class="col-4">
             <label>Data prevista devolução</label>
-            <input asp-for="DataPrevistaDevolucao" type="date" value="@Model.DataPrevistaDevolucao" class="form-control" />
-            <span asp-validation-for="DataPrevistaDevolucao" class="text-danger"></span>
+            <input asp-for="DataPrevisaoDevolucao" type="date" value="@Model.DataPrevisaoDevolucao" class="form-control" />
+            <span asp-validation-for="DataPrevisaoDevolucao" class="text-danger"></span>
         </div>
     </div>
     <div class="form-group">
         <div class="col-4">
-            <label>Data da Devolução</label>
+            <label>Data da devolução</label>
             <input asp-for="DataDevolucao" type="date" value="@Model.DataDevolucao" class="form-control" />
             <span asp-validation-for="DataDevolucao" class="text-danger"></span>
         </div>

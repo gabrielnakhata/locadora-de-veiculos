@@ -19,7 +19,8 @@ namespace Services
 
         public void Atualizar(Contrato contrato)
         {
-            ContratoRepository.AlterarPrevisaoFechamento(contrato); // o método não passa os parametros...
+
+            ContratoRepository.AlterarPrevisaoFechamento(contrato.Numero.ToString(), contrato.DataPrevisaoDevolucao, contrato.Valor);
         }
 
         public void Cadastrar(Contrato contrato)
@@ -34,7 +35,7 @@ namespace Services
 
         public void Excluir(int id)
         {
-            ContratoRepository.Delete(id); // numero contrato é string
+            ContratoRepository.Delete(id.ToString()); 
         }
 
         public IEnumerable<Contrato> Listagem()

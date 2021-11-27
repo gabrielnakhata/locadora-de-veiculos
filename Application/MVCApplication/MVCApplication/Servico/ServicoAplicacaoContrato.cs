@@ -26,10 +26,11 @@ namespace MVCApplication.Servico
         {
             Contrato item = new()
             {
-                Numero = contrato.Numero,
+                Numero = contrato.Numero.ToString(),
+                Placa = contrato.Placa.ToString(),
                 IdCliente = contrato.IdCliente,
-                DataContratacao = contrato.DataContratacao,
-                DataPrevistaDevolucao = contrato.DataPrevistaDevolucao,
+                Data = contrato.Data,
+                DataPrevisaoDevolucao = contrato.DataPrevisaoDevolucao,
                 DataDevolucao = contrato.DataDevolucao,
                 Valor = contrato.Valor
             };
@@ -43,10 +44,11 @@ namespace MVCApplication.Servico
 
             ContratoViewModel contrato = new()
             { 
-                Numero = registro.Numero,
+                Numero = registro.Numero.ToString(),
+                Placa = registro.Placa.ToString(),
                 IdCliente = registro.IdCliente,
-                DataContratacao = registro.DataContratacao,
-                DataPrevistaDevolucao = registro.DataPrevistaDevolucao,
+                Data = registro.Data,
+                DataPrevisaoDevolucao = registro.DataPrevisaoDevolucao,
                 DataDevolucao = registro.DataDevolucao,
                 Valor = registro.Valor
             };
@@ -61,8 +63,8 @@ namespace MVCApplication.Servico
 
         public IEnumerable<SelectListItem> ListaContratosDropDownList()
         {
-            List<SelectListItem> retorno = new();
             var lista = this.Listagem();
+            List<SelectListItem> retorno = new();
 
             foreach (var item in lista)
             {
@@ -86,10 +88,11 @@ namespace MVCApplication.Servico
             {
                 ContratoViewModel contrato = new()
                 {
-                    Numero = item.Numero,
+                    Numero = item.Numero.ToString(),
+                    Placa = item.Placa.ToString(),
                     IdCliente = item.IdCliente,
-                    DataContratacao = item.DataContratacao,
-                    DataPrevistaDevolucao = item.DataPrevistaDevolucao,
+                    Data = item.Data,
+                    DataPrevisaoDevolucao = item.DataPrevisaoDevolucao,
                     DataDevolucao = item.DataDevolucao,
                     Valor = item.Valor
                 };

@@ -16,10 +16,10 @@ namespace MVCApplication.Models
         public int IdCliente { get; set; }
         
         [Required(ErrorMessage = "Informe a Data da contratação!")]
-        public DateTime DataContratacao { get; set; }
+        public DateTime Data { get; set; }
 
         [Required(ErrorMessage = "Informe a Data prevista para devolução!")]
-        public DateTime DataPrevistaDevolucao { get; set; }
+        public DateTime DataPrevisaoDevolucao { get; set; }
 
         [Required(ErrorMessage = "Informe a Data prevista para devolução!")]
         public DateTime DataDevolucao { get; set; }

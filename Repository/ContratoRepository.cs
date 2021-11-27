@@ -10,22 +10,23 @@ namespace Repository
     {
         public void RegistrarContrato (Contrato contrato)
         {
-            string sql = $"insert into contrato(numero, placa, id_cliente, data, data_previsao_devolucao, valor) values(" +
+            string sql = $"insert into contrato(numero, placa, id_cliente, data, data_previsao_devolucao, data_devolucao, valor) values(" +
                          $"'{contrato.Numero}', " +
                          $"'{contrato.Placa}', " +
                          $"'{contrato.IdCliente}', " +
                          $"'{contrato.Data}', " +
-                         $"'{contrato.DataPrevistaDevolucao}', " +
+                         $"'{contrato.DataPrevisaoDevolucao}', " +
+                         $"'{contrato.DataDevolucao}', " +
                          $"'{contrato.Valor}')";
 
             ExecuteCommand(sql);
         }
 
-        public void AlterarPrevisaoFechamento(string numeroContrato, DateTime dataPrevistaDevolucao, decimal valor)
+        public void AlterarPrevisaoFechamento(string numeroContrato, DateTime dataPrevisaoDevolucao, decimal valor)
         {
            
             string sql = $"Update contrato set" +
-                         $" data_previsao_devolucao = '{dataPrevistaDevolucao:yyyyMMdd HH:mm}', " +
+                         $" data_prevista_devolucao = '{dataPrevisaoDevolucao:yyyyMMdd HH:mm}', " +
                          $" valor = {valor} " +                 
                          $" where numero = '{numeroContrato}'";
 
@@ -34,14 +35,14 @@ namespace Repository
         public void Delete(string id)
         {
             string sql = $"delete from contrato" +
-                         $" where numero = {id}";
+                         $" where numero = {id.ToString()}";
 
             ExecuteCommand(sql);
         }
 
         public IEnumerable<Contrato> List(int? id)
         {
-            string sql = $"select numero, placa, id_cliente, data, data_prevista_devolucao, data_devolucao from contrato ";
+            string sql = $"select numero, placa, id_cliente, data, data_previsao_devolucao, data_devolucao from contrato ";
             if (id != null) { sql += $" where id_cliente = {id}"; }
 
             var dataTable = Read(sql);
@@ -56,7 +57,7 @@ namespace Repository
                     Placa = dataTable.Rows[i][1].ToString(),
                     IdCliente = int.Parse(dataTable.Rows[i][2].ToString()),
                     Data = DateTime.Parse(dataTable.Rows[i][3].ToString()),
-                    DataPrevistaDevolucao = DateTime.Parse(dataTable.Rows[i][4].ToString()),
+                    DataPrevisaoDevolucao = DateTime.Parse(dataTable.Rows[i][4].ToString()),
                     DataDevolucao = DateTime.Parse(dataTable.Rows[i][5].ToString()),
                     Valor = decimal.Parse(dataTable.Rows[i][6].ToString())
 

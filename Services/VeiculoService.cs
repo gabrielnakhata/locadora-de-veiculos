@@ -1,34 +1,42 @@
 ﻿using Domain.Entities;
 using Domain.Interfaces;
+using Domain.Repositories;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Services
 {
     public class VeiculoService : IVeiculoService
     {
-        public void Atualizar(Veiculo entidade)
+        IVeiculoRepository VeiculoRepository;
+
+        public VeiculoService(IVeiculoRepository veiculoRepository)
         {
-            throw new System.NotImplementedException();
+            VeiculoRepository = veiculoRepository;
+        }
+        public void Atualizar(Veiculo veiculo)
+        {
+            VeiculoRepository.Update(veiculo);
         }
 
-        public void Cadastrar(Veiculo entidade)
+        public void Cadastrar(Veiculo veiculo)
         {
-            throw new System.NotImplementedException();
+            VeiculoRepository.Insert(veiculo);
         }
 
         public Veiculo CarregarRegistro(int id)
         {
-            throw new System.NotImplementedException();
+            return VeiculoRepository.List(id).FirstOrDefault();
         }
 
         public void Excluir(int id)
         {
-            throw new System.NotImplementedException();
+            VeiculoRepository.Delete(id.ToString());
         }
 
         public IEnumerable<Veiculo> Listagem()
         {
-            throw new System.NotImplementedException();
+            return VeiculoRepository.List(null);
         }
 
     }
