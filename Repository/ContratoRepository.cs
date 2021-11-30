@@ -40,7 +40,7 @@ namespace Repository
             ExecuteCommand(sql);
         }
 
-        public IEnumerable<Contrato> List(int? id)
+        public IEnumerable<Contrato> List(string id)
         {
             string sql = $"select numero, placa, id_cliente, data, data_previsao_devolucao, data_devolucao from contrato ";
             if (id != null) { sql += $" where id_cliente = {id}"; }
@@ -67,5 +67,6 @@ namespace Repository
             }
             return listaContratos;
         }
+
     }
 }

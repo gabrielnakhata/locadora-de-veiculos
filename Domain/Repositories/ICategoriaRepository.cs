@@ -6,8 +6,8 @@ namespace Domain.Repositories
     public interface ICategoriaRepository
     {
         public void Create(Categoria categoria);
-        public void Delete(int id);
+        public void Delete(string id);
         public void Update(Categoria categoria);
-        public IEnumerable<Categoria> List(int? id);
+        public IEnumerable<Categoria> List(string id);
     }
 }

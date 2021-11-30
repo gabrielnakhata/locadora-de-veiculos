@@ -39,7 +39,7 @@ namespace Repository
             ExecuteCommand(sql);
         }
 
-        public IEnumerable<Veiculo> List(int? id)
+        public IEnumerable<Veiculo> List(string id)
         {
             string sql = $"select ano, marca, modelo, codigo_categoria from veiculo ";
             if (id != null) { sql += $" where placa = {id}"; }

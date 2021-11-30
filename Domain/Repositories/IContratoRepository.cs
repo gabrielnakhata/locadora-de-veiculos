@@ -9,6 +9,6 @@ namespace Domain.Repositories
         public void RegistrarContrato(Contrato contrato);
         public void AlterarPrevisaoFechamento(string numeroContrato, DateTime dataPrevistaDevolucao, decimal valor);
         public void Delete(string id);
-        public IEnumerable<Contrato> List(int? id);
+        public IEnumerable<Contrato> List(string id);
     }
 }

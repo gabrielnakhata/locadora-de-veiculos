@@ -1,4 +1,6 @@
-﻿namespace Domain.Entities
+﻿using System.Collections.Generic;
+
+namespace Domain.Entities
 {
     public class Veiculo
     {
@@ -7,5 +9,7 @@
         public string Marca { get; set; }
         public string Modelo { get; set; }
         public int Codigo_categoria { get; set; }
+        public Categoria Categoria { get; set; }
+        public ICollection<Categoria> Categorias { get; set; }
     }
 }

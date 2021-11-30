@@ -10,7 +10,7 @@ namespace Domain.Interfaces
         IEnumerable<TEntidade> Listagem();
         void Cadastrar(TEntidade entidade);
         void Atualizar(TEntidade entidade);
-        TEntidade CarregarRegistro(int id);
-        void Excluir(int id);
+        TEntidade CarregarRegistro(string id);
+        void Excluir(string id);
     }
 }

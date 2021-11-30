@@ -25,14 +25,14 @@ namespace Services
             CategoriaRepository.Create(entidade);
         }
 
-        public Categoria CarregarRegistro(int id)
+        public Categoria CarregarRegistro(string id)
         {
             return CategoriaRepository.List(id).FirstOrDefault();
         }
 
-        public void Excluir(int id)
+        public void Excluir(string id)
         {
-            CategoriaRepository.Delete(id);
+            CategoriaRepository.Delete(id.ToString());
         }
 
         public IEnumerable<Categoria> Listagem()

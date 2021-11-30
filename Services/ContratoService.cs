@@ -28,12 +28,12 @@ namespace Services
             ContratoRepository.RegistrarContrato(contrato);
         }
 
-        public Contrato CarregarRegistro(int id)
+        public Contrato CarregarRegistro(string id)
         {
-            return ContratoRepository.List(id).FirstOrDefault();
+            return ContratoRepository.List(id.ToString()).FirstOrDefault();
         }
 
-        public void Excluir(int id)
+        public void Excluir(string id)
         {
             ContratoRepository.Delete(id.ToString()); 
         }

@@ -23,14 +23,14 @@ namespace MVCApplication.Controllers
 
         [HttpGet]
 
-        public IActionResult Cadastro(int? id)
+        public IActionResult Cadastro(string id)
         {
 
             ContratoViewModel viewModel = new();
 
             if (id != null)
             {
-                viewModel = ServicoAplicacaoContrato.CarregarRegistro((int)id);
+                viewModel = ServicoAplicacaoContrato.CarregarRegistro(id);
             }
             return View(viewModel);
         }
@@ -53,7 +53,7 @@ namespace MVCApplication.Controllers
 
         [HttpGet]
 
-        public IActionResult Excluir(int id)
+        public IActionResult Excluir(string id)
         {
             ServicoAplicacaoContrato.Excluir(id);
             return RedirectToAction("Index");

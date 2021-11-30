@@ -19,7 +19,7 @@ namespace Repository
             ExecuteCommand(sql);
         }
 
-        public void Delete(int id)
+        public void Delete(string id)
         {
             string sql = $"delete from cliente" +
                          $" where id = {id}";
@@ -27,7 +27,7 @@ namespace Repository
             ExecuteCommand(sql);
         }
 
-        public IEnumerable<Cliente> List(int? id)
+        public IEnumerable<Cliente> List(string id)
         {
             string sql = $"select id, nome, cpf, email, celular, cnh from cliente ";
             if (id != null) { sql += $" where id = {id}"; }

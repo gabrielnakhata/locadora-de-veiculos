@@ -24,14 +24,14 @@ namespace Services
             ClienteRepository.Create(cliente);
         }
 
-        public Cliente CarregarRegistro(int id)
+        public Cliente CarregarRegistro(string id)
         {
             return ClienteRepository.List(id).FirstOrDefault();
         }
 
-        public void Excluir(int id)
+        public void Excluir(string id)
         {
-            ClienteRepository.Delete(id);
+            ClienteRepository.Delete(id.ToString());
         }
 
         public IEnumerable<Cliente> Listagem()

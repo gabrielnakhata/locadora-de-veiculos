@@ -8,8 +8,8 @@ namespace MVCApplication.Servico.Interfaces
     {
         IEnumerable<SelectListItem> ListaCategoriaDropDownList();
         IEnumerable<CategoriaViewModel> Listagem();
-        CategoriaViewModel CarregarRegistro(int codigoCategoria);
+        CategoriaViewModel CarregarRegistro(string codigoCategoria);
         void Cadastrar(CategoriaViewModel categoria);
-        void Excluir(int id);
+        void Excluir(string id);
     }
 }

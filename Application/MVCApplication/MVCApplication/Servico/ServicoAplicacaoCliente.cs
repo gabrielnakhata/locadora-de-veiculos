@@ -33,7 +33,7 @@ namespace MVCApplication.Servico
                 ClienteService.Atualizar(item);
         }
 
-        public ClienteViewModel CarregarRegistro(int codigoCliente)
+        public ClienteViewModel CarregarRegistro(string codigoCliente)
         {
             var registro = ClienteService.CarregarRegistro(codigoCliente);
 
@@ -50,9 +50,9 @@ namespace MVCApplication.Servico
             return cliente;
         }
 
-        public void Excluir(int id)
+        public void Excluir(string id)
         {
-            ClienteService.Excluir(id);
+            ClienteService.Excluir(id.ToString());
         }
 
         public IEnumerable<SelectListItem> ListaClientesDropDownList()

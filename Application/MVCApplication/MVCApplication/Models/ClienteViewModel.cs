@@ -20,5 +20,7 @@ namespace MVCApplication.Models
 
         [Required(ErrorMessage = "Informe a CNH do cliente!")]
         public string Cnh { get; set; }
+
     }
+
 }

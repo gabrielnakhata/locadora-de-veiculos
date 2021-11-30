@@ -38,7 +38,7 @@ namespace MVCApplication.Servico
             ContratoService.Cadastrar(item);
         }
 
-        public ContratoViewModel CarregarRegistro(int IdCliente)
+        public ContratoViewModel CarregarRegistro(string IdCliente)
         {
             var registro = ContratoService.CarregarRegistro(IdCliente);
 
@@ -47,33 +47,51 @@ namespace MVCApplication.Servico
                 Numero = registro.Numero.ToString(),
                 Placa = registro.Placa.ToString(),
                 IdCliente = registro.IdCliente,
-                Data = registro.Data,
-                DataPrevisaoDevolucao = registro.DataPrevisaoDevolucao,
-                DataDevolucao = registro.DataDevolucao,
+                Data = (DateTime)registro.Data,
+                DataPrevisaoDevolucao = (DateTime)registro.DataPrevisaoDevolucao,
+                DataDevolucao = (DateTime)registro.DataDevolucao,
                 Valor = registro.Valor
             };
 
             return contrato;
         }
 
-        public void Excluir(int id)
+        public void Excluir(string id)
         {
-            ContratoService.Excluir(id);
+            ContratoService.Excluir(id.ToString());
+        }
+
+        public IEnumerable<SelectListItem> ListaClientesDropDownList()
+        {
+            List<SelectListItem> retorno = new();
+            var lista = this.Listagem();
+
+            foreach (var item in lista)
+            {
+                SelectListItem cliente = new()
+                {
+                    Value = item.IdCliente.ToString(),
+                    Text = item.ListaClientes.ToString()
+                };
+                retorno.Add(cliente);
+            }
+
+            return retorno;
         }
 
         public IEnumerable<SelectListItem> ListaContratosDropDownList()
         {
-            var lista = this.Listagem();
             List<SelectListItem> retorno = new();
+            var lista = this.Listagem();
 
             foreach (var item in lista)
             {
                 SelectListItem contrato = new()
                 {
-                    Value = item.IdCliente.ToString(),
-                    Text = item.Placa
+                    Value = item.Numero.ToString(),
+                    Text = item.Placa.ToString()
                 };
-                retorno.Add(contrato); 
+                retorno.Add(contrato);
             }
 
             return retorno;
@@ -101,6 +119,5 @@ namespace MVCApplication.Servico
 
             return listaContratos;
         }
-    
     }
 }

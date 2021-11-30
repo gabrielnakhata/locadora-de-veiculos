@@ -6,8 +6,8 @@ namespace Domain.Repositories
     public interface IClienteRepository
     {
         public void Create(Cliente cliente);
-        public void Delete(int id);
+        public void Delete(string id);
         public void Update(Cliente cliente);
-        public IEnumerable<Cliente> List(int? id);
+        public IEnumerable<Cliente> List(string id);
     }
 }

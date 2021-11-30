@@ -24,12 +24,12 @@ namespace Services
             VeiculoRepository.Insert(veiculo);
         }
 
-        public Veiculo CarregarRegistro(int id)
+        public Veiculo CarregarRegistro(string id)
         {
-            return VeiculoRepository.List(id).FirstOrDefault();
+            return VeiculoRepository.List(id.ToString()).FirstOrDefault();
         }
 
-        public void Excluir(int id)
+        public void Excluir(string id)
         {
             VeiculoRepository.Delete(id.ToString());
         }

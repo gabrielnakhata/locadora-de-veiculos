@@ -8,6 +8,6 @@ namespace Domain.Repositories
         void Insert(Veiculo veiculo);
         void Update(Veiculo veiculo);
         void Delete(string placa);
-        public IEnumerable<Veiculo> List(int? id);
+        public IEnumerable<Veiculo> List(string id);
     }
 }

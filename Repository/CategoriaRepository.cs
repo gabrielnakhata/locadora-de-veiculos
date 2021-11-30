@@ -14,7 +14,7 @@ namespace Repository
             ExecuteCommand(sql);
         }
 
-        public void Delete(int id)
+        public void Delete(string id)
         {
             string sql = $"delete from categoria" +
                        $" where codigo = {id}";
@@ -22,7 +22,7 @@ namespace Repository
             ExecuteCommand(sql);
         }
 
-        public IEnumerable<Categoria> List(int? id)
+        public IEnumerable<Categoria> List(string id)
         {
             string sql = $"select codigo, descricao from categoria ";
             if (id != null) { sql += $" where codigo = {id}";  }

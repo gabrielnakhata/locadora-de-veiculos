@@ -30,7 +30,7 @@ namespace MVCApplication.Servico
         }
 
 
-        public CategoriaViewModel CarregarRegistro(int codigoCategoria)
+        public CategoriaViewModel CarregarRegistro(string codigoCategoria)
         {
             var registro = CategoriaService.CarregarRegistro(codigoCategoria);
 
@@ -42,9 +42,9 @@ namespace MVCApplication.Servico
             return categoria;
         }
 
-        public void Excluir(int id)
+        public void Excluir(string id)
         {
-            CategoriaService.Excluir(id);
+            CategoriaService.Excluir(id.ToString());
         }
 
         public IEnumerable<SelectListItem> ListaCategoriaDropDownList()
