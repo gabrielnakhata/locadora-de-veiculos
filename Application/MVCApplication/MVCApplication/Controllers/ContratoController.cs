@@ -11,10 +11,15 @@ namespace MVCApplication.Controllers
     public class ContratoController : Controller
     {
         readonly IServicoAplicacaoContrato ServicoAplicacaoContrato;
+        readonly IServicoAplicacaoCliente ServicoAplicacaoCliente;
 
-        public ContratoController(IServicoAplicacaoContrato servicoAplicacaoContrato)
+        public ContratoController(
+            IServicoAplicacaoContrato servicoAplicacaoContrato,
+            IServicoAplicacaoCliente servicoAplicacaoCliente)
         {
             ServicoAplicacaoContrato = servicoAplicacaoContrato;
+            ServicoAplicacaoCliente = servicoAplicacaoCliente;
+
         }
         public IActionResult Index()
         {
@@ -32,6 +37,9 @@ namespace MVCApplication.Controllers
             {
                 viewModel = ServicoAplicacaoContrato.CarregarRegistro(id);
             }
+
+            viewModel.ListaClientes = ServicoAplicacaoCliente.ListaClientesDropDownList();
+
             return View(viewModel);
         }
 
@@ -45,6 +53,7 @@ namespace MVCApplication.Controllers
             }
             else
             {
+                entidade.ListaClientes = ServicoAplicacaoCliente.ListaClientesDropDownList();
                 return View(entidade);
             }
 
