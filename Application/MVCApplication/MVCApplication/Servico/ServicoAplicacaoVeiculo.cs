@@ -3,6 +3,7 @@ using Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MVCApplication.Models;
 using MVCApplication.Servico.Interfaces;
+using Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,20 +14,20 @@ namespace MVCApplication.Servico
     public class ServicoAplicacaoVeiculo : IServicoAplicacaoVeiculo
     {
         private readonly IVeiculoService VeiculoService;
-
-        public ServicoAplicacaoVeiculo(IVeiculoService veiculoService)
+        public ServicoAplicacaoVeiculo  (IVeiculoService veiculoService)
         {
             VeiculoService = veiculoService;
+           
         }
         public void Cadastrar(VeiculoViewModel veiculo)
         {
             Veiculo item = new()
             {
-                Placa = veiculo.Placa,
+                Placa = veiculo.Placa.ToString(),
                 Ano = veiculo.Ano,
                 Marca = veiculo.Marca,
                 Modelo = veiculo.Modelo,
-                Codigo_categoria = veiculo.Codigo_categoria
+                Codigo_categoria = (int)veiculo.Codigo_categoria
             };
 
             if (veiculo.Placa == null)
@@ -41,11 +42,11 @@ namespace MVCApplication.Servico
 
             VeiculoViewModel veiculo = new()
             { 
-                Placa = registro.Placa,
+                Placa = registro.Placa.ToString(),
                 Ano = registro.Ano,
                 Marca = registro.Marca,
                 Modelo = registro.Modelo,
-                Codigo_categoria = registro.Codigo_categoria
+                Codigo_categoria = (int)registro.Codigo_categoria
             };
 
             return veiculo;
@@ -57,6 +58,24 @@ namespace MVCApplication.Servico
             VeiculoService.Excluir(id);
         }
 
+        public IEnumerable<CategoriaViewModel> ListaCategoriaDropDownList()
+        {
+            var lista = CategoriaService.Listagem();
+            List<CategoriaViewModel> listaCategoria = new();
+            foreach (var item in lista)
+            {
+                CategoriaViewModel categoria = new()
+                {
+                    Codigo = item.Codigo,
+                    Descricao = item.Descricao
+                };
+                listaCategoria.Add(categoria);
+
+            }
+
+            return listaCategoria;
+        }
+
         public IEnumerable<VeiculoViewModel> Listagem()
         {
             var lista = VeiculoService.Listagem();
@@ -65,11 +84,12 @@ namespace MVCApplication.Servico
             {
                 VeiculoViewModel veiculo = new ()
                 {
-                    Placa = item.Placa,
+                    Placa = item.Placa.ToString(),
                     Ano = item.Ano,
                     Marca = item.Marca,
                     Modelo = item.Modelo,
-                    Codigo_categoria = item.Codigo_categoria
+                    Codigo_categoria = (int)item.Codigo_categoria,
+                    DescricaoCategoria = item.Categoria.Descricao
                 };
                 listaVeiculos.Add(veiculo);
 

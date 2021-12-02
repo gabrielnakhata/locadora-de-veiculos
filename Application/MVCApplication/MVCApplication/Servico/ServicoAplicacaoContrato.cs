@@ -46,7 +46,7 @@ namespace MVCApplication.Servico
             { 
                 Numero = registro.Numero.ToString(),
                 Placa = registro.Placa.ToString(),
-                IdCliente = registro.IdCliente,
+                IdCliente = (int)registro.IdCliente,
                 Data = (DateTime)registro.Data,
                 DataPrevisaoDevolucao = (DateTime)registro.DataPrevisaoDevolucao,
                 DataDevolucao = (DateTime)registro.DataDevolucao,
@@ -108,7 +108,7 @@ namespace MVCApplication.Servico
                 {
                     Numero = item.Numero.ToString(),
                     Placa = item.Placa.ToString(),
-                    IdCliente = item.IdCliente,
+                    IdCliente = (int)item.IdCliente,
                     Data = item.Data,
                     DataPrevisaoDevolucao = item.DataPrevisaoDevolucao,
                     DataDevolucao = item.DataDevolucao,

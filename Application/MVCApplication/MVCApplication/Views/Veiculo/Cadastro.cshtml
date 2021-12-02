@@ -1,0 +1,73 @@
+﻿@{
+    ViewData["title"] = "Cadastro | Veículo";
+}
+
+<h2>Cadastro de Veículo</h2>
+<hr />
+
+@model MVCApplication.Models.VeiculoViewModel
+
+@{
+    var disabled = (Model.Placa == null) ? "disabled" : string.Empty;
+}
+
+<form asp-controller="Veiculo" asp-action="Cadastro" method="post">
+    <input type="hidden" asp-for="Placa" value="@Model.Placa" />
+
+    <div class="form-group">
+        <div class="col-4">
+            <label>Placa</label>
+            <input asp-for="Placa" type="text" value="@Model.Placa" class="form-control" />
+            <span asp-validation-for="Placa" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-4">
+            <label>Ano</label>
+            <input asp-for="Ano" type="text" value="@Model.Ano" class="form-control" />
+            <span asp-validation-for="Ano" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-4">
+            <label>Marca</label>
+            <input asp-for="Marca" type="text" value="@Model.Marca" class="form-control" />
+            <span asp-validation-for="Marca" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-4">
+            <label>Modelo</label>
+            <input asp-for="Modelo" type="text" value="@Model.Modelo" class="form-control" />
+            <span asp-validation-for="Modelo" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-4">
+            <label>Categoria</label>
+            <select asp-for="Codigo_categoria" class="form-control input-group-lg" asp-items="@Model.ListaCategorias"></select>
+            <span asp-validation-for="Codigo_categoria" class="text-danger"></span>
+        </div>
+    </div>
+    <br />
+    <div class="col">
+        <button type="button" class="btn btn-info" onclick="Novo()">Novo</button>
+        <button type="submit" class="btn btn-success">Gravar</button>
+        <button type="button" class="btn btn-warning" onclick="Listagem()">Listagem</button>
+        <button type="button" class="btn btn-danger" onclick="Excluir(@Model.Placa)" @disabled>Excluir</button>
+    </div>
+</form>
+<script>
+    function Novo() {
+        Request("Cadastro");
+    }
+    function Listagem() {
+        Request("");
+    }
+    function Excluir(Codigo) {
+        Request("Excluir\\" + Codigo);
+    }
+    function Request(request) {
+        window.location = window.origin + "\\Veiculo\\" + request;
+    }
+</script>

@@ -14,11 +14,13 @@ namespace MVCApplication
             services.AddTransient<IClienteService, ClienteService>();
             services.AddTransient<IContratoService, ContratoService>();
             services.AddTransient<ICategoriaService, CategoriaService>();
+            services.AddTransient<IVeiculoService, VeiculoService>();
 
             //Repositories
             services.AddTransient<IClienteRepository, ClienteRepository>();
             services.AddTransient<IContratoRepository, ContratoRepository>();
             services.AddTransient<ICategoriaRepository, CategoriaRepository>();
+            services.AddTransient<IVeiculoRepository, VeiculoRepository>();
         }
     }
 }

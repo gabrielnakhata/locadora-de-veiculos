@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["title"] = "Veículos";
+}
+@model List<MVCApplication.Models.VeiculoViewModel>;
+
+<h2>Veículos</h2>
+<hr />
+
+<table class="table table-bordered">
+    <thead>
+        <tr style="background-color:#f6f6f6">
+            <th>Placa</th>
+            <th>Ano</th>
+            <th>Marca</th>
+            <th>Modelo</th>
+            <th>Categoria</th>
+        </tr>
+    </thead>
+    <tbody>
+       @foreach (var item in Model)
+        {
+        <tr onclick="Editar(@item.Placa)" style="cursor:pointer;">
+            <td>@item.Placa</td>
+            <td>@item.Ano</td>
+            <td>@item.Marca</td>
+            <td>@item.Modelo</td>
+            <td>@item.DescricaoCategoria</td>
+        </tr>
+        }
+    </tbody>
+</table>
+<br />
+
+<button type="button" class="btn btn-block btn-primary" onclick="Cadastrar()">Cadastrar Veículo</button>
+
+<script>
+    function Editar(Codigo) {
+        window.location = window.origin + "\\Veiculo\\Cadastro\\" + Codigo;
+    }
+    function Cadastrar() {
+        window.location = window.origin + "\\Veiculo\\Cadastro";
+    }
+</script>
