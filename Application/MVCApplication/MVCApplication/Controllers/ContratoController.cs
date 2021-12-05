@@ -37,6 +37,8 @@ namespace MVCApplication.Controllers
             {
                 viewModel = ServicoAplicacaoContrato.CarregarRegistro(id);
             }
+            else
+                viewModel.Numero = ServicoAplicacaoContrato.ObterNumeroContrato();
 
             viewModel.ListaClientes = ServicoAplicacaoCliente.ListaClientesDropDownList();
 

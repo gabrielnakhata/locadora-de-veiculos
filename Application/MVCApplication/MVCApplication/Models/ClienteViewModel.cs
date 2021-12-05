@@ -10,6 +10,8 @@ namespace MVCApplication.Models
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "Informe o CPF do cliente!")]
+        [MinLength(11, ErrorMessage ="O CPF deve ter 11 dígitos...")]
+        [MaxLength(11, ErrorMessage ="O CPF deve ter 11 dígitos...")]
         public string Cpf { get; set; }
 
         [Required(ErrorMessage = "Informe o E-mail do cliente!")]

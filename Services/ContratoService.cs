@@ -1,6 +1,7 @@
 ﻿using Domain.Entities;
 using Domain.Interfaces;
 using Domain.Repositories;
+using Services.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,17 +55,17 @@ namespace Services
         //    int diasContrato = dataPrevistaDevolucao.Subtract(dataContrato).Days;
         //    return diasContrato * FranquiaContratoRepository.RetornarValorFranquiaAluguel();
         //}
-        //private string RetornarNumeroNovoContrato()
-        //{
-        //    Random random = new Random();
-        //    int num1 = random.Next(1, 26);
-        //    int num2 = random.Next(1, 26);
-        //    string letra1 = Util.RetLetraAlfabeto(num1);
-        //    string letra2 = Util.RetLetraAlfabeto(num2);
-        //    string numero = random.Next(1, 9999).ToString("0000");
+        public string RetornarNumeroNovoContrato()
+        {
+            Random random = new Random();
+            int num1 = random.Next(1, 26);
+            int num2 = random.Next(1, 26);
+            string letra1 = Util.RetLetraAlfabeto(num1);
+            string letra2 = Util.RetLetraAlfabeto(num2);
+            string numero = random.Next(1, 9999).ToString("0000");
 
-        //    string numeroContrato = $"{DateTime.Now.Year}{letra1}{letra2}{numero}";
-        //    return numeroContrato;
-        //}
+            string numeroContrato = $"{DateTime.Now.Year}{letra1}{letra2}{numero}";
+            return numeroContrato;
+        }
     }
 }

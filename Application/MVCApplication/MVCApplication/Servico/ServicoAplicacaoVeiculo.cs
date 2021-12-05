@@ -14,10 +14,13 @@ namespace MVCApplication.Servico
     public class ServicoAplicacaoVeiculo : IServicoAplicacaoVeiculo
     {
         private readonly IVeiculoService VeiculoService;
-        public ServicoAplicacaoVeiculo  (IVeiculoService veiculoService)
+        private readonly ICategoriaService CategoriaService;
+        public ServicoAplicacaoVeiculo  (IVeiculoService veiculoService, ICategoriaService categoriaService)
         {
             VeiculoService = veiculoService;
-           
+            CategoriaService = categoriaService;
+
+
         }
         public void Cadastrar(VeiculoViewModel veiculo)
         {
@@ -30,7 +33,9 @@ namespace MVCApplication.Servico
                 Codigo_categoria = (int)veiculo.Codigo_categoria
             };
 
-            if (veiculo.Placa == null)
+            var existePlaca = VeiculoService.CarregarRegistro(veiculo.Placa);
+
+            if (existePlaca == null)
                 VeiculoService.Cadastrar(item);
             else
                 VeiculoService.Atualizar(item);
@@ -58,22 +63,22 @@ namespace MVCApplication.Servico
             VeiculoService.Excluir(id);
         }
 
-        public IEnumerable<CategoriaViewModel> ListaCategoriaDropDownList()
+        public IEnumerable<SelectListItem> ListaCategoriaDropDownList()
         {
+
+            List<SelectListItem> retorno = new();
             var lista = CategoriaService.Listagem();
-            List<CategoriaViewModel> listaCategoria = new();
+
             foreach (var item in lista)
             {
-                CategoriaViewModel categoria = new()
+                SelectListItem categoria = new()
                 {
-                    Codigo = item.Codigo,
-                    Descricao = item.Descricao
+                    Value = item.Codigo.ToString(),
+                    Text = item.Descricao
                 };
-                listaCategoria.Add(categoria);
-
+                retorno.Add(categoria);
             }
-
-            return listaCategoria;
+            return retorno;
         }
 
         public IEnumerable<VeiculoViewModel> Listagem()

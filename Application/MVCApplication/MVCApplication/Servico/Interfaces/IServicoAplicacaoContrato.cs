@@ -12,5 +12,6 @@ namespace MVCApplication.Servico.Interfaces
         ContratoViewModel CarregarRegistro(string IdCliente);
         void Cadastrar(ContratoViewModel contrato);
         void Excluir(string id);
+        string ObterNumeroContrato();
     }
 }

@@ -119,5 +119,10 @@ namespace MVCApplication.Servico
 
             return listaContratos;
         }
+
+        public string ObterNumeroContrato()
+        {
+            return ContratoService.RetornarNumeroNovoContrato();
+    }
     }
 }

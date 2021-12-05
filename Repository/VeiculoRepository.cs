@@ -41,8 +41,8 @@ namespace Repository
 
         public IEnumerable<Veiculo> List(string id)
         {
-            string sql = $"select ano, marca, modelo, codigo_categoria from veiculo ";
-            if (id != null) { sql += $" where placa = {id}"; }
+            string sql = $"select placa, ano, marca, modelo, codigo_categoria from veiculo ";
+            if (id != null) { sql += $" where placa = '{id}'"; }
 
             var dataTable = Read(sql);
 
@@ -56,8 +56,9 @@ namespace Repository
                     Ano = int.Parse(dataTable.Rows[i][1].ToString()),
                     Marca = dataTable.Rows[i][2].ToString(),
                     Modelo = dataTable.Rows[i][3].ToString(),
-                    Codigo_categoria = int.Parse(dataTable.Rows[i][4].ToString())
-
+                    Codigo_categoria = int.Parse(dataTable.Rows[i][4].ToString()),
+                    Categoria = new Categoria() {dataTable.Row[i][5]}
+                    //Categoria = new Categoria() { Codigo = 1, Descricao = "teste" }
                 };
 
                 listaVeiculos.Add(veiculo);

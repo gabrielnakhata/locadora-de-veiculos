@@ -7,7 +7,7 @@ namespace MVCApplication.Servico.Interfaces
 {
     public interface IServicoAplicacaoVeiculo
     {
-        IEnumerable<CategoriaViewModel> ListaCategoriaDropDownList();
+        IEnumerable<SelectListItem> ListaCategoriaDropDownList();
         IEnumerable<SelectListItem> ListaVeiculosDropDownList();
         IEnumerable<VeiculoViewModel> Listagem();
         VeiculoViewModel CarregarRegistro(string codigoVeiculo);

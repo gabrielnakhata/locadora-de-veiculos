@@ -21,7 +21,6 @@ namespace MVCApplication.Models
         [Required(ErrorMessage = "Informe a Data prevista para devolução!")]
         public DateTime DataPrevisaoDevolucao { get; set; }
 
-        [Required(ErrorMessage = "Informe a Data prevista para devolução!")]
         public DateTime DataDevolucao { get; set; }
         public decimal Valor { get; set; }
         public IEnumerable<SelectListItem> ListaClientes { get; set; }

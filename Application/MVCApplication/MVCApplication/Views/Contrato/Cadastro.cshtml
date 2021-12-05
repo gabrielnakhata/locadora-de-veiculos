@@ -12,8 +12,12 @@
 }
 
 <form asp-controller="Contrato" asp-action="Cadastro" method="post">
-    <input type="text" asp-for="Numero" value="@Model.Numero" />
-
+    <div class="form-group">
+        <div class="col-4">
+            <label>Número Contrato</label>
+            <input type="text" asp-for="Numero" value="@Model.Numero" class="form-control" input-lg readonly />
+        </div>
+    </div>
     <div class="form-group">
         <div class="col-4">
             <label>Selecione um Cliente do cadastro</label>
@@ -39,7 +43,6 @@
         <div class="col-4">
             <label>Data da devolução</label>
             <input asp-for="DataDevolucao" type="date" value="@Model.DataDevolucao" class="form-control" />
-            <span asp-validation-for="DataDevolucao" class="text-danger"></span>
         </div>
     </div>
     <div class="form-group">
@@ -56,7 +59,7 @@
         <button type="button" class="btn btn-warning" onclick="Listagem()">Listagem</button>
         <button type="button" class="btn btn-danger" onclick="Excluir(@Model.IdCliente)" @disabled>Excluir</button>
     </div>
-    
+
 </form>
 <script>
     function Novo() {

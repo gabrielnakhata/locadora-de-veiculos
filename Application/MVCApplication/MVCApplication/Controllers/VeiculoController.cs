@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿
+using Microsoft.AspNetCore.Mvc;
 using MVCApplication.Models;
 using MVCApplication.Servico.Interfaces;
 using System;
@@ -25,15 +26,19 @@ namespace MVCApplication.Controllers
         public IActionResult Cadastro(string id) 
         {
             VeiculoViewModel viewModel = new();
+           
 
             if (id != null)
             {
                 viewModel = ServicoAplicacaoVeiculo.CarregarRegistro(id);
             }
+
+            viewModel.ListaCategorias = ServicoAplicacaoVeiculo.ListaCategoriaDropDownList();
+
             return View(viewModel);
         }
 
-        [HttpPost] // 
+        [HttpPost]
         public IActionResult Cadastro(VeiculoViewModel entidade)
         {
             if (ModelState.IsValid)
@@ -42,6 +47,7 @@ namespace MVCApplication.Controllers
             }
             else
             {
+                entidade.ListaCategorias = ServicoAplicacaoVeiculo.ListaCategoriaDropDownList();
                 return View(entidade);
             }
 
