@@ -10,5 +10,6 @@ namespace Domain.Entities
         public string Modelo { get; set; }
         public int? Codigo_categoria { get; set; }
         public Categoria Categoria { get; set; }
+       
     }
 }

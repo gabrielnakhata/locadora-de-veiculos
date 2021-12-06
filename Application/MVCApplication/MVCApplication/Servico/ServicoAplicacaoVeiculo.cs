@@ -31,6 +31,7 @@ namespace MVCApplication.Servico
                 Marca = veiculo.Marca,
                 Modelo = veiculo.Modelo,
                 Codigo_categoria = (int)veiculo.Codigo_categoria
+
             };
 
             var existePlaca = VeiculoService.CarregarRegistro(veiculo.Placa);
@@ -51,7 +52,8 @@ namespace MVCApplication.Servico
                 Ano = registro.Ano,
                 Marca = registro.Marca,
                 Modelo = registro.Modelo,
-                Codigo_categoria = (int)registro.Codigo_categoria
+                Codigo_categoria = (int)registro.Codigo_categoria,
+                DescricaoCategoria = registro.Categoria.Descricao
             };
 
             return veiculo;
