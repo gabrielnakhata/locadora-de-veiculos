@@ -12,13 +12,16 @@ namespace MVCApplication.Controllers
     {
         readonly IServicoAplicacaoContrato ServicoAplicacaoContrato;
         readonly IServicoAplicacaoCliente ServicoAplicacaoCliente;
+        readonly IServicoAplicacaoVeiculo ServicoAplicacaoVeiculo;
 
         public ContratoController(
             IServicoAplicacaoContrato servicoAplicacaoContrato,
-            IServicoAplicacaoCliente servicoAplicacaoCliente)
+            IServicoAplicacaoCliente servicoAplicacaoCliente,
+            IServicoAplicacaoVeiculo servicoAplicacaoVeiculo)
         {
             ServicoAplicacaoContrato = servicoAplicacaoContrato;
             ServicoAplicacaoCliente = servicoAplicacaoCliente;
+            ServicoAplicacaoVeiculo = servicoAplicacaoVeiculo;
 
         }
         public IActionResult Index()
@@ -41,6 +44,7 @@ namespace MVCApplication.Controllers
                 viewModel.Numero = ServicoAplicacaoContrato.ObterNumeroContrato();
 
             viewModel.ListaClientes = ServicoAplicacaoCliente.ListaClientesDropDownList();
+            viewModel.ListaVeiculos = ServicoAplicacaoVeiculo.ListaVeiculosDropDownList();
 
             return View(viewModel);
         }
@@ -56,6 +60,8 @@ namespace MVCApplication.Controllers
             else
             {
                 entidade.ListaClientes = ServicoAplicacaoCliente.ListaClientesDropDownList();
+                entidade.ListaVeiculos = ServicoAplicacaoVeiculo.ListaVeiculosDropDownList();
+
                 return View(entidade);
             }
 

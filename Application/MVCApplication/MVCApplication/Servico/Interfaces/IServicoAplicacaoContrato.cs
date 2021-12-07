@@ -6,7 +6,7 @@ namespace MVCApplication.Servico.Interfaces
 {
     public interface IServicoAplicacaoContrato
     {
-        IEnumerable<SelectListItem> ListaContratosDropDownList();
+        IEnumerable<SelectListItem> ListaVeiculosDropDownList();
         IEnumerable<SelectListItem> ListaClientesDropDownList();
         IEnumerable<ContratoViewModel> Listagem();
         ContratoViewModel CarregarRegistro(string IdCliente);

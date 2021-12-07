@@ -35,7 +35,7 @@ namespace Repository
         public void Delete(string id)
         {
             string sql = $"delete from contrato" +
-                         $" where numero = {id.ToString()}";
+                         $" where numero = '{id}'";
 
             ExecuteCommand(sql);
         }
@@ -59,7 +59,8 @@ namespace Repository
                     Data = DateTime.Parse(dataTable.Rows[i][3].ToString()),
                     DataPrevisaoDevolucao = DateTime.Parse(dataTable.Rows[i][4].ToString()),
                     DataDevolucao = DateTime.Parse(dataTable.Rows[i][5].ToString()),
-                    Valor = decimal.Parse(dataTable.Rows[i][6].ToString())
+                    Valor = decimal.Parse(dataTable.Rows[i][6].ToString()),
+
 
                 };
 

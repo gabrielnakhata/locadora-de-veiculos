@@ -10,6 +10,7 @@
     <thead>
         <tr style="background-color:#f6f6f6">
             <th>Número contrato</th>
+            <th>Placa</th>
             <th>Id cliente</th>
             <th>Data da contratação</th>
             <th>Data prevista para devolução</th>
@@ -20,8 +21,9 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr onclick="Editar(@item.IdCliente)" style="cursor:pointer;">
+            <tr onclick="Editar(@item.Numero)" style="cursor:pointer;">
                 <td>@item.Numero</td>
+                <td>@item.Placa</td>
                 <td>@item.IdCliente</td>
                 <td>@item.Data</td>
                 <td>@item.DataPrevisaoDevolucao</td>

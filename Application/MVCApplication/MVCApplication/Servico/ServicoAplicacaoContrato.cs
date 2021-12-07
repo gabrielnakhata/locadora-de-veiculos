@@ -15,11 +15,16 @@ namespace MVCApplication.Servico
         // readonly, Em uma declaração de campo, indica que a atribuição ao campo só pode ocorrer como
         // parte da declaração ou em um construtor na mesma readonly classe.
 
-        private readonly IContratoService ContratoService; 
+        private readonly IContratoService ContratoService;
+        private readonly IVeiculoService VeiculoService;
+        private readonly IClienteService ClienteService;
 
-        public ServicoAplicacaoContrato(IContratoService contratoService)
+        public ServicoAplicacaoContrato(
+            IContratoService contratoService, IVeiculoService veiculoService, IClienteService clienteService)
         {
             ContratoService = contratoService;
+            VeiculoService = veiculoService;
+            ClienteService = clienteService;
         }
 
         public void Cadastrar(ContratoViewModel contrato)
@@ -51,6 +56,7 @@ namespace MVCApplication.Servico
                 DataPrevisaoDevolucao = (DateTime)registro.DataPrevisaoDevolucao,
                 DataDevolucao = (DateTime)registro.DataDevolucao,
                 Valor = registro.Valor
+                
             };
 
             return contrato;
@@ -58,7 +64,7 @@ namespace MVCApplication.Servico
 
         public void Excluir(string id)
         {
-            ContratoService.Excluir(id.ToString());
+            ContratoService.Excluir(id);
         }
 
         public IEnumerable<SelectListItem> ListaClientesDropDownList()
@@ -79,19 +85,19 @@ namespace MVCApplication.Servico
             return retorno;
         }
 
-        public IEnumerable<SelectListItem> ListaContratosDropDownList()
+        public IEnumerable<SelectListItem> ListaVeiculosDropDownList()
         {
             List<SelectListItem> retorno = new();
             var lista = this.Listagem();
 
             foreach (var item in lista)
             {
-                SelectListItem contrato = new()
+                SelectListItem veiculo = new()
                 {
-                    Value = item.Numero.ToString(),
-                    Text = item.Placa.ToString()
+                    Value = item.Placa.ToString(),
+                    Text = item.ListaVeiculos.ToString()
                 };
-                retorno.Add(contrato);
+                retorno.Add(veiculo);
             }
 
             return retorno;
@@ -113,6 +119,7 @@ namespace MVCApplication.Servico
                     DataPrevisaoDevolucao = item.DataPrevisaoDevolucao,
                     DataDevolucao = item.DataDevolucao,
                     Valor = item.Valor
+
                 };
                 listaContratos.Add(contrato);
             }
@@ -123,6 +130,6 @@ namespace MVCApplication.Servico
         public string ObterNumeroContrato()
         {
             return ContratoService.RetornarNumeroNovoContrato();
-    }
+        }
     }
 }

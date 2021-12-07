@@ -20,7 +20,14 @@
     </div>
     <div class="form-group">
         <div class="col-4">
-            <label>Selecione um Cliente do cadastro</label>
+            <label>Selecione a placa do veículo</label>
+            <select asp-for="Placa" asp-items="@Model.ListaVeiculos" class="form-control" input-lg></select>
+            <span asp-validation-for="Placa" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-4">
+            <label>Selecione um cliente do cadastro</label>
             <select asp-for="IdCliente" asp-items="@Model.ListaClientes" class="form-control" input-lg></select>
             <span asp-validation-for="IdCliente" class="text-danger"></span>
         </div>

@@ -10,6 +10,6 @@ namespace Domain.Entities
         public string Email { get; set; }
         public string Celular { get; set; }
         public string Cnh { get; set; }
-        public ICollection<Contrato> Contratos { get; set; }
+        
     }
 }

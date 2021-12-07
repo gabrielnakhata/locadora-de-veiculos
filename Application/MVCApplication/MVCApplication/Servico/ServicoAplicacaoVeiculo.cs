@@ -19,8 +19,6 @@ namespace MVCApplication.Servico
         {
             VeiculoService = veiculoService;
             CategoriaService = categoriaService;
-
-
         }
         public void Cadastrar(VeiculoViewModel veiculo)
         {
@@ -41,7 +39,6 @@ namespace MVCApplication.Servico
             else
                 VeiculoService.Atualizar(item);
         }
-
         public VeiculoViewModel CarregarRegistro(string codigoVeiculo)
         {
             var registro = VeiculoService.CarregarRegistro(codigoVeiculo);
@@ -59,12 +56,10 @@ namespace MVCApplication.Servico
             return veiculo;
 
         }
-
         public void Excluir(string id)
         {
             VeiculoService.Excluir(id);
         }
-
         public IEnumerable<SelectListItem> ListaCategoriaDropDownList()
         {
 
@@ -82,7 +77,6 @@ namespace MVCApplication.Servico
             }
             return retorno;
         }
-
         public IEnumerable<VeiculoViewModel> Listagem()
         {
             var lista = VeiculoService.Listagem();
@@ -104,7 +98,6 @@ namespace MVCApplication.Servico
 
             return listaVeiculos;
         }
-
         public IEnumerable<SelectListItem> ListaVeiculosDropDownList()
         {
             List<SelectListItem> retorno = new ();

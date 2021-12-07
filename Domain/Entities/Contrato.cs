@@ -12,8 +12,8 @@ namespace Domain.Entities
         public DateTime DataPrevisaoDevolucao { get; set; }
         public DateTime DataDevolucao { get; set; }
         public decimal Valor { get; set; }
-        public ICollection<Cliente> Clientes { get; set; }
-        public ICollection<Veiculo> Veiculos { get; set; }
+        public Cliente Cliente { get; set; }
+        public Veiculo Veiculo { get; set; }
 
 
     }
